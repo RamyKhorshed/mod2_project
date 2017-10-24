@@ -2132,3 +2132,898 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 32ms (Views: 19.0ms | ActiveRecord: 5.2ms)
 
 
+Started GET "/users/1" for 127.0.0.1 at 2017-10-24 09:28:41 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.8ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  Rendered users/show.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 411ms (Views: 347.1ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/users/edit/1" for 127.0.0.1 at 2017-10-24 09:36:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/edit/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:36:47 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (109.0ms)
+  Rendered users/edit.html.erb within layouts/application (110.9ms)
+Completed 200 OK in 166ms (Views: 152.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:42:24 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.8ms)
+  Rendered users/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 44ms (Views: 28.5ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:42:37 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"890CfQ72BZ5D+zYEtB8z/w/OLUfR9ZwoldQY9Au5LmRxcQszyaj1KBQk7wFQwyYuQLnC09pkZGv3bjgxSvWBPA==", "user"=>{"name"=>"Rob", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `new' for #<User:0x00007fd6d92135b0>):
+  
+app/controllers/users_controller.rb:27:in `update'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:43:05 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.0ms)
+  Rendered users/edit.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 51ms (Views: 30.5ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:43:11 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v2ez7Wh59DonfT5KJJc2FQ/h5R6XMBxrNBde2SSi5w89y7qjrycEjHCi50/ASyPEQJYKipyh5ChWrX4cZe5IVw==", "user"=>{"name"=>"rib", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `new' for #<User:0x00007fd6dcbeb558>):
+  
+app/controllers/users_controller.rb:27:in `update'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:43:43 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.6ms)
+  Rendered users/edit.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 39ms (Views: 24.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:43:47 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3X0vr+vXiOqEHg719TJiLqM/WpRmbNVn/TkQON/m/op2f3wePGulf3PoT4zCNxZ9fsS/loISxb9TsSFojM0og==", "user"=>{"name"=>"tib", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `new' for nil:NilClass):
+  
+app/controllers/users_controller.rb:26:in `update'
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:49:24 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3X0vr+vXiOqEHg719TJiLqM/WpRmbNVn/TkQON/m/op2f3wePGulf3PoT4zCNxZ9fsS/loISxb9TsSFojM0og==", "user"=>{"name"=>"tib", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+Completed 500 Internal Server Error in 35492ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `update'
+app/controllers/users_controller.rb:27:in `update'
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:50:16 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3X0vr+vXiOqEHg719TJiLqM/WpRmbNVn/TkQON/m/op2f3wePGulf3PoT4zCNxZ9fsS/loISxb9TsSFojM0og==", "user"=>{"name"=>"tib", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (25.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "tib"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tib"], ["quote", "twas"], ["password", ""], ["created_at", "2017-10-24 13:50:17.748315"], ["updated_at", "2017-10-24 13:50:17.748315"]]
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to 
+Completed 500 Internal Server Error in 1599ms (ActiveRecord: 55.5ms)
+
+
+  
+NoMethodError (undefined method `show_url' for #<UsersController:0x00007fd6dccb8530>):
+  
+app/controllers/users_controller.rb:28:in `update'
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:53:41 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3X0vr+vXiOqEHg719TJiLqM/WpRmbNVn/TkQON/m/op2f3wePGulf3PoT4zCNxZ9fsS/loISxb9TsSFojM0og==", "user"=>{"name"=>"tib", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "tib"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (64.9ms)
+  Rendered users/edit.html.erb within layouts/application (73.2ms)
+Completed 200 OK in 854ms (Views: 529.8ms | ActiveRecord: 4.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:53:49 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3X0vr+vXiOqEHg719TJiLqM/WpRmbNVn/TkQON/m/op2f3wePGulf3PoT4zCNxZ9fsS/loISxb9TsSFojM0og==", "user"=>{"name"=>"tib", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "tib"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (64.9ms)
+  Rendered users/edit.html.erb within layouts/application (72.1ms)
+Completed 200 OK in 622ms (Views: 533.6ms | ActiveRecord: 5.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:54:03 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3X0vr+vXiOqEHg719TJiLqM/WpRmbNVn/TkQON/m/op2f3wePGulf3PoT4zCNxZ9fsS/loISxb9TsSFojM0og==", "user"=>{"name"=>"tib", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "tib"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (115.7ms)
+  Rendered users/edit.html.erb within layouts/application (125.3ms)
+Completed 200 OK in 668ms (Views: 582.6ms | ActiveRecord: 3.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:54:11 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3X0vr+vXiOqEHg719TJiLqM/WpRmbNVn/TkQON/m/op2f3wePGulf3PoT4zCNxZ9fsS/loISxb9TsSFojM0og==", "user"=>{"name"=>"tib", "password"=>"[FILTERED]", "quote"=>"twas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "tib"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (65.2ms)
+  Rendered users/edit.html.erb within layouts/application (73.6ms)
+Completed 200 OK in 614ms (Views: 536.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:55:03 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (124.8ms)
+  Rendered users/edit.html.erb within layouts/application (139.7ms)
+Completed 200 OK in 928ms (Views: 682.3ms | ActiveRecord: 9.8ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:55:11 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2RzyJ1jud02HjrCSIe6kBnhpHWtMUPJ0QbJln9e0mtlbsPtpn7CH+9BRaZfFMrHXNx7y/0fBCjcjCEValvg1gQ==", "user"=>{"name"=>"tib", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `update'
+app/controllers/users_controller.rb:28:in `update'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:55:25 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (66.6ms)
+  Rendered users/edit.html.erb within layouts/application (76.5ms)
+Completed 200 OK in 634ms (Views: 598.5ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:55:30 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lrEzzcxNQmdr99PkAKyNPO8DSauM3obWb0B1jAd7JFoUHTqDCxOy0TwoCuHkcJjtoHSmP4dPfpUN+lVJRjeLAg==", "user"=>{"name"=>"tibby", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "tibby"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tibby"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 13:55:40.956426"], ["updated_at", "2017-10-24 13:55:40.956426"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 41611ms (ActiveRecord: 3.5ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `update'
+app/controllers/users_controller.rb:28:in `update'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:56:16 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (65.9ms)
+  Rendered users/edit.html.erb within layouts/application (74.2ms)
+Completed 200 OK in 752ms (Views: 413.7ms | ActiveRecord: 7.6ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:56:22 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V7dJtJSD5zDcf4E8vOuFhHk4Ml8uyMGoi4Ta2BN7/6PVG0D6U90XhougWDlYN5BVNk/dyyVZOevpPvodUjdQ+w==", "user"=>{"name"=>"tiggy", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+Completed 500 Internal Server Error in 12427ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `update'
+app/controllers/users_controller.rb:28:in `update'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:56:36 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (61.0ms)
+  Rendered users/edit.html.erb within layouts/application (69.4ms)
+Completed 200 OK in 600ms (Views: 412.3ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:56:41 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OHUN++m0iRz8AGIlMeDy5wBmXJoCboOuiglvdzf/2cu62QS1Lup5qqvfuyDVPOc2TxGzDgn/e+3os0+ydrN2kw==", "user"=>{"name"=>"tiggy", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "tiggy"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "tiggy"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 13:56:41.347353"], ["updated_at", "2017-10-24 13:56:41.347353"]]
+  [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000users/:id
+Completed 302 Found in 115ms (ActiveRecord: 25.9ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:56:45 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (51.7ms)
+  Rendered users/edit.html.erb within layouts/application (59.1ms)
+Completed 200 OK in 437ms (Views: 402.8ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:56:48 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DnGwbAAnFEwtvhMpTonBTZxlcx4Pkzs1P1VupZuc27CM3bkix3nk+nphyiyqVdSc0xKcigQCw3Zd705g2tB06A==", "user"=>{"name"=>"tiggy", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "tiggy"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (50.2ms)
+  Rendered users/edit.html.erb within layouts/application (57.2ms)
+Completed 200 OK in 465ms (Views: 400.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:57:59 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (56.8ms)
+  Rendered users/edit.html.erb within layouts/application (63.9ms)
+Completed 200 OK in 588ms (Views: 405.5ms | ActiveRecord: 9.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:58:05 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sLvRLkwqKUUNpenJjpiZqSFUBWXWgpWDYdlGw010LpUyF9hgi3TZ81p6MMxqRIx4biPq8d0TbcADY2YGDDiBzQ==", "user"=>{"name"=>"aaa", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "aaa"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "aaa"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 13:58:05.150060"], ["updated_at", "2017-10-24 13:58:05.150060"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 61364ms (ActiveRecord: 5.3ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `update'
+app/controllers/users_controller.rb:29:in `update'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:59:10 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (59.5ms)
+  Rendered users/edit.html.erb within layouts/application (67.0ms)
+Completed 200 OK in 626ms (Views: 424.4ms | ActiveRecord: 11.2ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:59:14 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KXjcb95s9rAZ25UIvfKzahFKOKZ4nutPzrg9ONtpEGSr1NUhGTIGBk4ETA1ZLqa7Xj3XMnMPEwysAh39miW/PA==", "user"=>{"name"=>"vvvvv", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "vvvvv"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "vvvvv"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 13:59:14.905504"], ["updated_at", "2017-10-24 13:59:14.905504"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000users/:id
+Completed 302 Found in 101ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 09:59:17 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (52.0ms)
+  Rendered users/edit.html.erb within layouts/application (59.9ms)
+Completed 200 OK in 446ms (Views: 410.0ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 09:59:20 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2pGi/RgSJwV9+AdHyKNdWxLzHE8JX4gASDsktHBSoxhYPauz30zXsyon3kIsf0iKXYTz2wLOcEMqgQRxMR4MQA==", "user"=>{"name"=>"vvvvv", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "vvvvv"], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 55570ms (ActiveRecord: 3.6ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `update'
+app/controllers/users_controller.rb:31:in `update'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:00:34 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (60.4ms)
+  Rendered users/edit.html.erb within layouts/application (67.9ms)
+Completed 200 OK in 721ms (Views: 509.1ms | ActiveRecord: 9.3ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:00:40 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A+EdYBW6pARBMj4MdfNQNxoB59XO0oVEvLYn2iE8dByBTRQu0uRUshbt5wmRL0XmVXYIQcVDfQfeDAcfYHDbRA==", "user"=>{"name"=>"ljlkj", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "ljlkj"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "ljlkj"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 14:00:40.677832"], ["updated_at", "2017-10-24 14:00:40.677832"]]
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000users/:id
+Completed 302 Found in 113ms (ActiveRecord: 25.2ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:00:43 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (51.3ms)
+  Rendered users/edit.html.erb within layouts/application (59.7ms)
+Completed 200 OK in 424ms (Views: 400.0ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:00:47 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vjBybmzRAMnBC31RQTSTPLFnuH4CBs8O9VzNX43Tdzg8nHsgq4/wf5bUpFSl6Ibt/hBX6gmXN02X5u2azJ/YYA==", "user"=>{"name"=>"kjlkl", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "kjlkl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "kjlkl"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 14:00:47.549050"], ["updated_at", "2017-10-24 14:00:47.549050"]]
+  [1m[35m (9.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000users/:id
+Completed 302 Found in 87ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-10-24 10:00:51 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (1.5ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  Rendered users/show.html.erb within layouts/application (95.6ms)
+Completed 200 OK in 567ms (Views: 447.3ms | ActiveRecord: 8.6ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:00:55 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vjBybmzRAMnBC31RQTSTPLFnuH4CBs8O9VzNX43Tdzg8nHsgq4/wf5bUpFSl6Ibt/hBX6gmXN02X5u2azJ/YYA==", "user"=>{"name"=>"kjlkl", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "kjlkl"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000users/:id
+Completed 302 Found in 67ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:01:01 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (42.6ms)
+  Rendered users/edit.html.erb within layouts/application (59.2ms)
+Completed 200 OK in 454ms (Views: 430.6ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:01:13 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n0svS3jve18PGNB108HRknzkgAnM/UhAzo9/nt6w42gd5yYFv7GL6VjHCXA3HcRDM5NvncdssAOsNV9bn/xMMA==", "user"=>{"name"=>"rob", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "rob"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "rob"], ["quote", "hwas"], ["password", "a"], ["created_at", "2017-10-24 14:01:13.985194"], ["updated_at", "2017-10-24 14:01:13.985194"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000users/:id
+Completed 302 Found in 96ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:01:23 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (55.1ms)
+  Rendered users/edit.html.erb within layouts/application (63.5ms)
+Completed 200 OK in 612ms (Views: 425.2ms | ActiveRecord: 9.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:01:33 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+UMfNrOevm4DVDgiRmO0KjDThP+DzZoUwQ9COlYars177xZ4dMBO2FSL4Seiv6H7f6Rra4hcYlejtWL/F1YBlQ==", "user"=>{"name"=>"vnnv", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "vnnv"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "vnnv"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 14:01:34.772375"], ["updated_at", "2017-10-24 14:01:34.772375"]]
+  [1m[35m (35.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/id
+Completed 302 Found in 259ms (ActiveRecord: 39.3ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2017-10-24 10:01:34 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (83.9ms)
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+    2: <h3>All Achievements</h3>
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___2692730465437976681_70280440482860'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:01:59 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (59.1ms)
+  Rendered users/edit.html.erb within layouts/application (66.5ms)
+Completed 200 OK in 630ms (Views: 433.5ms | ActiveRecord: 9.4ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:02:03 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ldP0aFFZRqBGMCiaVCq7v5VTnk50PhRbEZu64pACCF0Xf/0mlge2FhHv8Z+w9q5u2iRx2n+v7BhzIZon0U6nBQ==", "user"=>{"name"=>"nvn", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (11.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "nvn"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "nvn"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 14:02:03.985637"], ["updated_at", "2017-10-24 14:02:03.985637"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/:id
+Completed 302 Found in 85ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-10-24 10:02:04 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (84.6ms)
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+    2: <h3>All Achievements</h3>
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___2692730465437976681_70280418964840'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:02:37 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (58.5ms)
+  Rendered users/edit.html.erb within layouts/application (67.2ms)
+Completed 200 OK in 632ms (Views: 444.4ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:02:44 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HUBVlCW46nP8mmiWqBeGlSiEtyE6jbcVSUAw24fL6pef7Fza4uYaxatFsZNMy5NEZ/NYtTEcT1Yr+hAexodFzw==", "user"=>{"name"=>"yu", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "yu"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "yu"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 14:02:44.965409"], ["updated_at", "2017-10-24 14:02:44.965409"]]
+  [1m[35m (26.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/:id
+Completed 302 Found in 117ms (ActiveRecord: 30.2ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-10-24 10:02:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (84.7ms)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+    2: <h3>All Achievements</h3>
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___2692730465437976681_70280433125340'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:03:47 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (64.3ms)
+  Rendered users/edit.html.erb within layouts/application (75.0ms)
+Completed 200 OK in 683ms (Views: 482.7ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:03:52 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UagAZGS5PQlWOcaAibJ7c65ZcYp3h+Ty1GhZEz7asj3TBAkqo+fNvwHmH4Vtbm6i4S6eHnwWHLG20nnWf5YdZQ==", "user"=>{"name"=>"joji", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "joji"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "joji"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 14:03:52.928489"], ["updated_at", "2017-10-24 14:03:52.928489"]]
+  [1m[35m (25.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/:id
+Completed 302 Found in 110ms (ActiveRecord: 29.6ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-10-24 10:03:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (36.1ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered users/show.html.erb within layouts/application (43167.6ms)
+Completed 500 Internal Server Error in 43270ms (ActiveRecord: 41.4ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `_app_views_users_show_html_erb___2692730465437976681_70280418458340'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___2692730465437976681_70280418458340'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:04:38 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (46.4ms)
+  Rendered users/edit.html.erb within layouts/application (64.9ms)
+Completed 200 OK in 581ms (Views: 420.4ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:04:45 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3fa7yTA5mWyo3uYjV5SoiScei2SiAwkwjKnd/DDAD0xfWrKH92dp2v8BPyazSL1YaGlk8KmS8XPuE/05cYygFA==", "user"=>{"name"=>"hun", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "hun"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "hun"], ["quote", "hwas"], ["password", ""], ["created_at", "2017-10-24 14:04:45.337174"], ["updated_at", "2017-10-24 14:04:45.337174"]]
+  [1m[35m (10.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (10.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "hun"], ["id", 15], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/:id
+Completed 302 Found in 139ms (ActiveRecord: 27.6ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-10-24 10:04:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (83.4ms)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+    3: <h3>All Achievements</h3>
+    4: <% @public_achievements.each do |achievement| %>
+    5: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___2692730465437976681_70280419616180'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:05:56 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (57.6ms)
+  Rendered users/edit.html.erb within layouts/application (64.9ms)
+Completed 200 OK in 594ms (Views: 432.4ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:06:01 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FxB59U1aa1nMmAEZrQwvj3WevkmiNzBBph/1t9wwb5+VvHC7igSb75tH2BxJ0DpeOulR3ammyALEpdVynXzAxw==", "user"=>{"name"=>"han", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "han"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (20.6ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "password" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["name", "han"], ["password", ""], ["updated_at", "2017-10-24 14:06:01.847651"], ["id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "han"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/:id
+Completed 302 Found in 170ms (ActiveRecord: 29.4ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-10-24 10:06:01 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (85.5ms)
+Completed 500 Internal Server Error in 177ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+    3: <h3>All Achievements</h3>
+    4: <% @public_achievements.each do |achievement| %>
+    5: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___2692730465437976681_70280419795160'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:06:30 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (62.4ms)
+  Rendered users/edit.html.erb within layouts/application (70.7ms)
+Completed 200 OK in 640ms (Views: 450.5ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:06:33 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"duoSDJtt5vHFZ3y5XaRRrebOwI5xielxehUgiuYSddn0RhtCXDMWR5K4pby5eER8qbkvGnoYETIYrwBPp17agQ==", "user"=>{"name"=>"han", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "han"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 18839ms (ActiveRecord: 5.5ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `update'
+app/controllers/users_controller.rb:29:in `update'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:07:01 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (54.5ms)
+  Rendered users/edit.html.erb within layouts/application (61.9ms)
+Completed 200 OK in 452ms (Views: 416.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:07:29 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (59.5ms)
+  Rendered users/edit.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 608ms (Views: 444.1ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:07:35 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CMqeWFemJUMesSVAuAAgyxgrXdGQgo0HswlZH7uVon+KZpcWkPjV9Ulu/EVc3DUaV1yyRZsTdUTRs3na+tkNJw==", "user"=>{"name"=>"winlow", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "winlow"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "winlow"], ["updated_at", "2017-10-24 14:07:35.273381"], ["id", 1]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "winlow"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/:id
+Completed 302 Found in 153ms (ActiveRecord: 15.1ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-10-24 10:07:35 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (55566.2ms)
+Completed 500 Internal Server Error in 55658ms (ActiveRecord: 1.1ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `_app_views_users_show_html_erb___2692730465437976681_70280368698240'
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___2692730465437976681_70280368698240'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:08:35 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (59.3ms)
+  Rendered users/edit.html.erb within layouts/application (66.5ms)
+Completed 200 OK in 612ms (Views: 434.8ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:08:40 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ChzfpLbi1MDQmL8xxq/glbXgcnjP+rcQ/YMaxmUt+AWIsNbqcbwkdodHZjQic/VE+ped7MRrT1OfOToDJGFXXQ==", "user"=>{"name"=>"aljdf", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "aljdf"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "aljdf"], ["updated_at", "2017-10-24 14:08:41.105079"], ["id", 1]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "aljdf"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 153393ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:11:14 -0400
+  
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:11:14 -0400
+Processing by UsersController#edit as HTML
+SystemExit (exit):
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  
+  Parameters: {"id"=>"1"}
+(byebug):1:in `exit'
+(byebug):1:in `update'
+app/controllers/users_controller.rb:30:in `update'
+  [1m[36mUser Load (14.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (50.8ms)
+  Rendered users/edit.html.erb within layouts/application (414.1ms)
+  [1m[36mUser Load (51.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 1684ms (Views: 1523.0ms | ActiveRecord: 14.2ms)
+
+
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (83.9ms)
+  Rendered users/edit.html.erb within layouts/application (92.8ms)
+Completed 200 OK in 2193ms (Views: 566.9ms | ActiveRecord: 1153.6ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:11:17 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8fxoLmw8LmGPtq57/PBiFNAECwydsl9asNa8hnsAmiNzUGFgq2Le19hpd34YLHfFn3PkmJYjpxnSbJxDOkw1ew==", "user"=>{"name"=>"aljdf", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "aljdf"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "aljdf"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "aljdf"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/:id
+Completed 302 Found in 340ms (ActiveRecord: 17.2ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-10-24 10:11:19 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (89.3ms)
+Completed 500 Internal Server Error in 185ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+    3: <h3>All Achievements</h3>
+    4: <% @public_achievements.each do |achievement| %>
+    5: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___2692730465437976681_70280378201060'
+Started GET "/users/1/edit" for 127.0.0.1 at 2017-10-24 10:12:22 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (64.6ms)
+  Rendered users/edit.html.erb within layouts/application (73.1ms)
+Completed 200 OK in 632ms (Views: 437.7ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2017-10-24 10:12:28 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yVGKE9jqvVQDtigNIa6wxt2eEZ+tl5rBXUUAozk992pL/YNdH7RN4lRp8QjFcqUXkun+C6YGYoI//yBmeHFYMg==", "user"=>{"name"=>"bbb", "password"=>"[FILTERED]", "quote"=>"hwas"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "bbb"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "bbb"], ["updated_at", "2017-10-24 14:12:28.922949"], ["id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["name", "bbb"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 158ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-10-24 10:12:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (1.5ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  Rendered users/show.html.erb within layouts/application (119.4ms)
+Completed 200 OK in 566ms (Views: 473.7ms | ActiveRecord: 14.7ms)
+
+
