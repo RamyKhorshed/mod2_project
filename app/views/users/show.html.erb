@@ -1,7 +1,48 @@
+<h1>This is a change</h1>
+
 <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
 <h3>All Achievements</h3>
 <% @public_achievements.each do |achievement| %>
-<p><ul><%= achievement.name %></p><br>
-<li><%= achievement.description %></li>
+  <ul>
+    Achievement:<%= achievement.name %></br>
+    <li><%= achievement.description %></li>
+  </ul>
+<% end %>
+
+<h3>Bucket List</h3>
+<ul>
+  <% @all_bucketlist.each do |item| %>
+    <li>
+      Name: <%= item.name %> </br>
+      Description: <%= item.description %>
+    </li>
+  <% end %>
 </ul>
+
+<h3>Add Item to Bucketlist</h3>
+<%= form_for @bucketlist do |f| %>
+  <input type="hidden" name="user_id" value="<%=@user.id%>">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.submit "Add Item" %>
+<% end %>
+
+</br>
+<h3>Enter the name of an item to remove it from your bucketlist</h3>
+<%= form_for @bucketlist do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Remove Item" %>
+<% end %>
+
+
+</br></br>
+<h4>Delete yourself</h4>
+<h4>Enter your password to confirm you want to delete your account</h4>
+<%= form_for @user do |f| %>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <%= f.submit "Delete"%>
 <% end %>
