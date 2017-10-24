@@ -115,6 +115,7 @@ Migrating to ActivityAchievements (20171023185044)
   [1m[36mAchievement Load (0.4ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mAchievement Load (0.4ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" ORDER BY "achievements"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "user_activities" ON "users"."id" = "user_activities"."user_id" INNER JOIN "activities" ON "user_activities"."activity_id" = "activities"."id" INNER JOIN "activity_achievements" ON "activities"."id" = "activity_achievements"."activity_id" WHERE "activity_achievements"."achievement_id" = $1 LIMIT $2[0m  [["achievement_id", 3], ["LIMIT", 11]]
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2017-10-23 17:34:36 -0400
   
 PG::ConnectionBad (fe_sendauth: no password supplied
@@ -461,6 +462,19 @@ activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_p
 activerecord (5.1.4) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
 activerecord (5.1.4) lib/active_record/connection_handling.rb:88:in `connection'
 activerecord (5.1.4) lib/active_record/migration.rb:562:in `connection'
+=======
+Started GET "/" for 127.0.0.1 at 2017-10-23 16:54:25 -0400
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.4) lib/active_record/migration.rb:576:in `check_pending!'
+>>>>>>> 11ee463afc9819ed2dd2114d6c99a6b6734ccd88
 activerecord (5.1.4) lib/active_record/migration.rb:553:in `call'
 actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
 activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
@@ -493,6 +507,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2017-10-23 18:16:12 -0400
   
 PG::ConnectionBad (fe_sendauth: no password supplied
@@ -683,6 +698,124 @@ activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
 actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
 actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
 actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+=======
+  [1m[35m (422.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (51.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (45.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6307859188970604930)[0m
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20171023184701)
+  [1m[35m (19.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (235.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "quote" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (69.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171023184701"]]
+  [1m[35m (28.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivities (20171023184810)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "name" character varying, "description" character varying, "category" character varying, "points" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171023184810"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAchievements (20171023184853)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "achievements" ("id" bigserial primary key, "name" character varying, "description" character varying, "img_reference" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171023184853"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to UserActivities (20171023185007)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (29.1ms)[0m  [1m[35mCREATE TABLE "user_activities" ("id" bigserial primary key, "user_id" integer, "activity_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171023185007"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ActivityAchievements (20171023185044)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (25.4ms)[0m  [1m[35mCREATE TABLE "activity_achievements" ("id" bigserial primary key, "activity_id" integer, "achievement_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171023185044"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (28.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-23 20:54:47.600472"], ["updated_at", "2017-10-23 20:54:47.600472"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6307859188970604930)[0m
+  [1m[35m (40.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-10-23 16:54:50 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/bernardodorado/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/bernardodorado/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 19ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "diego"], ["quote", "hwas"], ["created_at", "2017-10-23 20:55:46.761040"], ["updated_at", "2017-10-23 20:55:46.761040"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "activities" ("name", "description", "category", "points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "5k"], ["description", "running"], ["category", "Run"], ["points", 5], ["created_at", "2017-10-23 20:57:18.490707"], ["updated_at", "2017-10-23 20:57:18.490707"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "achievements" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "done"], ["description", "complete"], ["created_at", "2017-10-23 20:57:52.127480"], ["updated_at", "2017-10-23 20:57:52.127480"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "user_activities" ("user_id", "activity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["activity_id", 1], ["created_at", "2017-10-23 20:58:06.740036"], ["updated_at", "2017-10-23 20:58:06.740036"]]
+  [1m[35m (50.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActivity Load (0.9ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "activity_achievements" ("activity_id", "achievement_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["activity_id", 1], ["achievement_id", 1], ["created_at", "2017-10-23 20:59:42.868957"], ["updated_at", "2017-10-23 20:59:42.868957"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" INNER JOIN "activity_achievements" ON "activities"."id" = "activity_achievements"."activity_id" WHERE "activity_achievements"."achievement_id" = $1 LIMIT $2[0m  [["achievement_id", 1], ["LIMIT", 11]]
+  [1m[36mAchievement Load (1.2ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/users/show" for 127.0.0.1 at 2017-10-23 17:00:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! <h1>
+    2: 
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb__485290465867222590_70160618769300'
+Started GET "/users/show" for 127.0.0.1 at 2017-10-23 17:02:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 4.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! <h1>
+    2: 
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb__485290465867222590_70160592059660'
+Started GET "/users/show" for 127.0.0.1 at 2017-10-23 17:02:49 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! <h1>
+    2: 
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb__485290465867222590_70160591893020'
+Started GET "/user/1" for 127.0.0.1 at 2017-10-23 17:03:26 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/user/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+>>>>>>> 11ee463afc9819ed2dd2114d6c99a6b6734ccd88
 web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
 web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
@@ -709,6 +842,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2017-10-23 18:56:42 -0400
   
 ActiveRecord::PendingMigrationError (
@@ -857,3 +991,555 @@ ActionView::Template::Error (undefined method `each' for nil:NilClass):
   
 app/views/users/index.html.erb:12:in `_app_views_users_index_html_erb___4025232120132896402_70182108103700'
   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+=======
+Started GET "/users/1" for 127.0.0.1 at 2017-10-23 17:03:32 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 4.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! <h1>
+    2: 
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+    5: <li><%= achievement.description %></li>
+    6: </ul>
+  
+app/views/users/show.html.erb:3:in `_app_views_users_show_html_erb__485290465867222590_70160597607700'
+Started GET "/users/1" for 127.0.0.1 at 2017-10-23 17:04:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.9ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  Rendered users/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 2441ms (Views: 2416.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-10-23 17:14:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.7ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  Rendered users/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 46ms (Views: 40.4ms | ActiveRecord: 1.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "achievements" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "deli"], ["description", "fyjn"], ["created_at", "2017-10-23 21:15:04.960707"], ["updated_at", "2017-10-23 21:15:04.960707"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mAchievement Load (1.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mAchievement Load (1.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "achievements" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "new"], ["description", "old"], ["created_at", "2017-10-23 21:25:16.772681"], ["updated_at", "2017-10-23 21:25:16.772681"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ken"], ["quote", "doritos"], ["created_at", "2017-10-23 21:26:03.432348"], ["updated_at", "2017-10-23 21:26:03.432348"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAchievement Load (1.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mAchievement Load (1.5ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "activities" ("name", "description", "category", "points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "buffet"], ["description", "stuffed"], ["category", "eating"], ["points", 23], ["created_at", "2017-10-23 21:28:42.316886"], ["updated_at", "2017-10-23 21:28:42.316886"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActivity Load (0.7ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" INNER JOIN "activity_achievements" ON "activities"."id" = "activity_achievements"."activity_id" WHERE "activity_achievements"."achievement_id" = $1 LIMIT $2[0m  [["achievement_id", 2], ["LIMIT", 11]]
+  [1m[36mActivity Load (0.7ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" INNER JOIN "activity_achievements" ON "activities"."id" = "activity_achievements"."activity_id" WHERE "activity_achievements"."achievement_id" = $1 LIMIT $2[0m  [["achievement_id", 1], ["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "activity_achievements" ("activity_id", "achievement_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["activity_id", 2], ["achievement_id", 2], ["created_at", "2017-10-23 21:29:39.918175"], ["updated_at", "2017-10-23 21:29:39.918175"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" INNER JOIN "activity_achievements" ON "activities"."id" = "activity_achievements"."activity_id" WHERE "activity_achievements"."achievement_id" = $1 LIMIT $2[0m  [["achievement_id", 2], ["LIMIT", 11]]
+  [1m[36mAchievement Load (1.1ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mActivity Load (0.6ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "user_activities" ("user_id", "activity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["activity_id", 2], ["created_at", "2017-10-23 21:31:25.644916"], ["updated_at", "2017-10-23 21:31:25.644916"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[36mAchievement Load (0.5ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+Started GET "/users/2" for 127.0.0.1 at 2017-10-23 17:31:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.5ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  Rendered users/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 39.0ms | ActiveRecord: 0.9ms)
+
+
+>>>>>>> 11ee463afc9819ed2dd2114d6c99a6b6734ccd88
+Started GET "/" for 127.0.0.1 at 2017-10-23 19:41:06 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 17ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-23 19:41:19 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 247ms (Views: 245.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-23 19:41:50 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-23 19:46:55 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 39ms (Views: 18.7ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-23 19:47:18 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y7vW+QCamH2l6NUF3ZAcO8MjpyioHPaMqEebmFz3bfddBIEb+CKhzSBgbyRfm6zmDBaQIFHZd3pxZy6Go8Hv5Q==", "user"=>{"name"=>"Ramy Khorshed", "quote"=>"Favorite", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameter: :password_confirmation
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x00007ff1b56cf210>
+Did you mean?  pretty_print
+               pretty_inspect
+               pretty_print_cycle
+               try):
+  
+app/controllers/users_controller.rb:14:in `create'
+Started POST "/users" for 127.0.0.1 at 2017-10-23 19:48:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y7vW+QCamH2l6NUF3ZAcO8MjpyioHPaMqEebmFz3bfddBIEb+CKhzSBgbyRfm6zmDBaQIFHZd3pxZy6Go8Hv5Q==", "user"=>{"name"=>"Ramy Khorshed", "quote"=>"Favorite", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameter: :password_confirmation
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x00007ff1b7739ac8>
+Did you mean?  pretty_print
+               pretty_inspect
+               pretty_print_cycle
+               try):
+  
+app/controllers/users_controller.rb:14:in `create'
+Started GET "/" for 127.0.0.1 at 2017-10-24 09:42:09 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (11.3ms)
+Completed 200 OK in 24ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-24 09:42:14 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 12ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2017-10-24 09:42:18 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/index" for 127.0.0.1 at 2017-10-24 09:42:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-24 09:42:33 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 09:42:34 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-10-24 09:42:48 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VAI6A1rptRpUPorqnWOaKAG5bRULjvB+YccpWjUAOEEqpzSDGCjdpbgjWuYg9yUBHTc2TJvYlYRLNRWNwDHe2w==", "session"=>{"email"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (34.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "RamyKhorshed@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 34.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column users.email does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LI...
+                                             ^
+: SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2):
+  
+app/controllers/sessions_controller.rb:6:in `create'
+Started GET "/login" for 127.0.0.1 at 2017-10-24 09:43:27 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 09:55:47 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 09:56:24 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 09:57:00 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 09:57:37 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 101ms (Views: 18.4ms | ActiveRecord: 68.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 09:57:43 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (86.0ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name_field' for #<ActionView::Helpers::FormBuilder:0x00007ff1bd1aae30>
+Did you mean?  number_field
+               range_field
+               time_field
+               date_field):
+     6:     <%= form_for(:session, url: login_path) do |f| %>
+     7: 
+     8:       <%= f.label :name %>
+     9:       <%= f.name_field :name, class: 'form-control' %>
+    10: 
+    11:       <%= f.label :password %>
+    12:       <%= f.password_field :password, class: 'form-control' %>
+  
+app/views/sessions/new.html.erb:9:in `block in _app_views_sessions_new_html_erb__2350348023897964410_70338118356900'
+app/views/sessions/new.html.erb:6:in `_app_views_sessions_new_html_erb__2350348023897964410_70338118356900'
+Started GET "/login" for 127.0.0.1 at 2017-10-24 09:58:08 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-10-24 09:58:16 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pwyae5dvbfuw0+yKrEs0mOABJbiu1M6Q9pR9+2THMzBBqZT71a4FRFzOPIYR34ux/I9+4T6Cq2rcZkEskfbVqg==", "session"=>{"name"=>"Ramy Khorshed", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (12.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Ramy Khorshed"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 52ms (Views: 20.1ms | ActiveRecord: 24.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-10-24 09:58:27 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Zm6WwHAkz/0SrR+9fvO9AAZ0lCdxbVr0pdX0fOOoxSbPLTbQwH7gBhXZHJIb3HdHJeJCQ2T0JH4ZWsGBr9Fjg==", "session"=>{"name"=>"Ramy", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Ramy"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 09:59:00 -0400
+  
+ActionController::RoutingError (uninitialized constant SessionsController):
+  
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-24 09:59:01 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 09:59:01 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 32ms (Views: 19.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-10-24 09:59:03 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     9:     </tr>
+    10:   </thead>
+    11: 
+    12: <% @users.each do |user| %>
+    13:   <tr>
+    14:     <td><%= user.name %></td>
+    15:     <td><%= user.email %></td>
+  
+app/views/users/index.html.erb:12:in `_app_views_users_index_html_erb__676743275477745486_70338106307160'
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 09:59:07 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2017-10-24 09:59:09 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+    2: <h3>All Achievements</h3>
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___3059939157186359447_70338053029580'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (30.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ramy"], ["quote", "In the Arena"], ["created_at", "2017-10-24 14:08:29.087161"], ["updated_at", "2017-10-24 14:08:29.087161"]]
+  [1m[35m (60.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "quote", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert"], ["quote", "I love cereal"], ["password", "password"], ["created_at", "2017-10-24 14:09:34.789271"], ["updated_at", "2017-10-24 14:09:34.789271"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/index" for 127.0.0.1 at 2017-10-24 10:13:58 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+    2: <h3>All Achievements</h3>
+    3: <% @public_achievements.each do |achievement| %>
+    4: <p><ul><%= achievement.name %></p><br>
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___3059939157186359447_70338052244020'
+Started GET "/users" for 127.0.0.1 at 2017-10-24 10:13:59 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     9:     </tr>
+    10:   </thead>
+    11: 
+    12: <% @users.each do |user| %>
+    13:   <tr>
+    14:     <td><%= user.name %></td>
+    15:     <td><%= user.email %></td>
+  
+app/views/users/index.html.erb:12:in `_app_views_users_index_html_erb__676743275477745486_70338057456000'
+Started GET "/" for 127.0.0.1 at 2017-10-24 10:14:00 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ramy/.rvm/gems/ruby-2.3.5/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 10:14:01 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 59ms (Views: 57.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 10:14:01 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 25ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 10:14:16 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 10:14:31 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-10-24 10:14:39 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uDghpDp9S9zSTZxoyhZ9dMtRr7H06mmnfYt1N8TJjiPGnS8keLwjYz5QTGR3gsJd19/06GS8DF1XeUngMfhouQ==", "name"=>"Ramy", "password"=>"[FILTERED]", "commit"=>"Login"}
+  Rendering sessions/create.html.erb within layouts/application
+  Rendered sessions/create.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 10:14:41 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6307859188970604930)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddEmailToUsers (20171024141729)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.0ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171024141729"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsernameToUsers (20171024141744)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "username" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171024141744"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6307859188970604930)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

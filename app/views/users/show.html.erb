@@ -1,0 +1,7 @@
+<h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+<h3>All Achievements</h3>
+<% @public_achievements.each do |achievement| %>
+<p><ul><%= achievement.name %></p><br>
+<li><%= achievement.description %></li>
+</ul>
+<% end %>
