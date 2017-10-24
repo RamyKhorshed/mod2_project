@@ -1,23 +1,11 @@
-<h1>This is a change</h1>
-
 <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
-<h3>All Achievements</h3>
+<h3><%= link_to "All Achievements", achievements_path %></h3>
 <% @public_achievements.each do |achievement| %>
   <ul>
-    Achievement:<%= achievement.name %></br>
-    <li><%= achievement.description %></li>
+  <li><%= link_to achievement.name, achievement_path %>, <%= achievement.description %></li>
   </ul>
 <% end %>
 
-<h3>Bucket List</h3>
-<ul>
-  <% @all_bucketlist.each do |item| %>
-    <li>
-      Name: <%= item.name %> </br>
-      Description: <%= item.description %>
-    </li>
-  <% end %>
-</ul>
 
 <h3>Add Item to Bucketlist</h3>
 <%= form_for @bucketlist do |f| %>

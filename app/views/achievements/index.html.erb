@@ -1,0 +1,7 @@
+<h2>All Achievements</h2>
+
+<% @achievements.each do |achievement| %>
+  ACHIEVEMENT IMAGE TO BE HERE </br>
+  <%= link_to achievement.name, achievement_path(achievement) %>
+  <li><%= achievement.description %><li>
+<% end %>

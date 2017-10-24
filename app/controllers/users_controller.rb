@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
    def show
      find_user
+     @activity = Activity.new
      @public_achievements = Achievement.all
      @all_bucketlist = find_user.bucketlists
      @bucketlist = Bucketlist.new
