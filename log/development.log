@@ -9167,3 +9167,913 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 51ms (Views: 28.3ms | ActiveRecord: 5.3ms)
 
 
+Started GET "/users/3" for 127.0.0.1 at 2017-10-24 17:11:30 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.2ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.1ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 35ms (Views: 31.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-10-24 17:11:35 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.2ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 29ms (Views: 25.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2017-10-24 17:11:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.4ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.2ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 4]]
+  Rendered users/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 30ms (Views: 25.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-10-24 17:11:42 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 26ms (Views: 23.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2017-10-24 17:11:44 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 31ms (Views: 27.3ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/8" for 127.0.0.1 at 2017-10-24 17:11:47 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GTegasDQ4ancrzhtrZLqJbT2DERrToInW7Vgxc2WS2oLuo6Y8IcA1DgtnuTjp43BfTUMNbtfVMtMkmoTXwWlyQ==", "user"=>{"name"=>"Ramy Khorshed", "password"=>"[FILTERED]", "quote"=>"Hey"}, "commit"=>"Update User", "id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Unpermitted parameter: :quote
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "RamyKhorshed@gmail.com"], ["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "ramykhorshed"], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "RamyKhorshed@gmail.com"], ["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "ramykhorshed"], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2017-10-24 17:11:47 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.1ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 29ms (Views: 25.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-10-24 17:11:52 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 29ms (Views: 24.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2017-10-24 17:11:53 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.4ms)
+  Rendered users/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/users/8" for 127.0.0.1 at 2017-10-24 17:11:57 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i+RusP1HKzL8lEA4nt6GGSa2iIVsofWVj/js0TE+pb+ZaUBCzRDKTxgW5rHQ6+H973WI9LywI3mY3+YHo61LHA==", "user"=>{"name"=>"Ramy Khorshed", "password"=>"[FILTERED]", "quote"=>"Hey"}, "commit"=>"Update User", "id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Unpermitted parameter: :quote
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "RamyKhorshed@gmail.com"], ["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "ramykhorshed"], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "RamyKhorshed@gmail.com"], ["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "ramykhorshed"], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 7ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2017-10-24 17:11:57 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.2ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.1ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-10-24 17:12:05 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 24ms (Views: 19.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:30:21 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/5
+Filter chain halted as :already_logged_in? rendered or redirected
+Completed 302 Found in 42ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2017-10-24 17:30:21 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.5ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.3ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 5]]
+  Rendered users/show.html.erb within layouts/application (21.6ms)
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 5.2ms)
+
+
+  
+ActionView::Template::Error (Indenting at the beginning of the document is illegal.):
+    4:     <title>TrackerApp</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/application.css.sass:2
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__1455321916357420494_70154103807800'
+Started GET "/users/5" for 127.0.0.1 at 2017-10-24 17:30:54 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.1ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 5]]
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 1404ms (Views: 1398.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2017-10-24 17:35:12 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.2ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 5]]
+  Rendered users/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 43ms (Views: 38.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:35:19 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/5
+Filter chain halted as :already_logged_in? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2017-10-24 17:35:19 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.1ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 5]]
+  Rendered users/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 33ms (Views: 25.8ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-24 17:35:24 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Q4Cjb5qzE/X6DqFFh5v4WndmbdZkhhherkdFfCodFEDKEF2M6hxmTfORAmVpyANBOjwQDBjaapiNO+eFFgJa1Q=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:35:24 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:39:02 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:39:27 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 17:39:30 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:46:51 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:46:53 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:46:57 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 17:47:53 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 17:48:17 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=%2Bv8s1dEyr0im%2B%2BHoJYN6ONlzN0Qkdyh2v1zk%2FcWJ7CBzb9I2oZ3a8K9kQsjL0IEjlClKnlgrWrCcIEYE%2BZaitQ%3D%3D&username=RamyKhorshed&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:48:27 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+v8s1dEyr0im++HoJYN6ONlzN0Qkdyh2v1zk/cWJ7CBzb9I2oZ3a8K9kQsjL0IEjlClKnlgrWrCcIEYE+ZaitQ==", "username"=>"RamyKhorshed", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=90oJGLRuEfBrGO5NOYZ3J3uMcVgYDrkIJDBYk1I%2BgGd%2B2vf7xMFkSGKHTW3X1Yw8NtYMgmRSy84HTPpqbiHO8g%3D%3D&username=taraseln&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:48:37 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"90oJGLRuEfBrGO5NOYZ3J3uMcVgYDrkIJDBYk1I+gGd+2vf7xMFkSGKHTW3X1Yw8NtYMgmRSy84HTPpqbiHO8g==", "username"=>"taraseln", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=EBW%2FUZaiuc0OtXa8hIUe%2BUel6SY6mkG8cgVhgoeOiniZhUGy5g3MdQcq1Zxq1uXiCv%2BU%2FEbGM3pRecN7u5HE7Q%3D%3D&username=ramykhorshed&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:49:21 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EBW/UZaiuc0OtXa8hIUe+Uel6SY6mkG8cgVhgoeOiniZhUGy5g3MdQcq1Zxq1uXiCv+U/EbGM3pRecN7u5HE7Q==", "username"=>"ramykhorshed", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=YHAcVPA%2B2Xl3B%2F%2FFAiQpsVx6YX%2FiWncWDvsFB%2FixeX%2Fp4OK3gJGswX6YXOXsd9KqESAcpZ4GBdAth6f%2BxK436g%3D%3D&username=JustDiego&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:50:09 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YHAcVPA+2Xl3B//FAiQpsVx6YX/iWncWDvsFB/ixeX/p4OK3gJGswX6YXOXsd9KqESAcpZ4GBdAth6f+xK436g==", "username"=>"JustDiego", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 17:50:15 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 17:50:19 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-24 17:50:36 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gi90aaD4M4U2ATkUiKwA05/juIOv1ySOk3vDymlOITlXsyLr0MPoH4rJVqmjaSdoX7nFmUeYjPP+EDFHwoTwCQ==", "user"=>{"name"=>"Ramy Khorshed", "username"=>"RamyKhorshed", "email"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "RamyKhorshed@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "RamyKhorshed"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 8478ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-24 17:50:45 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-24 17:51:04 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QXVIoH1y9yuWrKJM1C+HTd53Hs43gSjCG370eKx8lqPI5bZDDd2Ck58zAWw6fHxWky1jFEvdWgQ4AlaBkGPYNg==", "user"=>{"name"=>"marcelo", "username"=>"marcelo", "email"=>"marcelo@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "marcelo@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "marcelo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "username", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "marcelo"], ["created_at", "2017-10-24 21:51:09.383002"], ["updated_at", "2017-10-24 21:51:09.383002"], ["email", "marcelo@gmail.com"], ["username", "marcelo"], ["password_digest", "$2a$10$Wa9JlLXSLt.Jwaq70vKGmuYEOgtarb2ISJuIw2o5DYvfemEhpVH3G"]]
+  [1m[35m (51.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 6653ms (ActiveRecord: 53.1ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2017-10-24 17:51:10 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.1ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 23ms (Views: 17.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:51:16 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/9
+Filter chain halted as :already_logged_in? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2017-10-24 17:51:16 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.2ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-24 17:51:19 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RiywikcVOfcmzTfkbV4xVUpwE8LHLs9DXUsgsXml6tbPvE5pN7pMTy9SlMSDDcpOBypuGLtyvYV+N4JIRbqkQw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:51:19 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=IkOpEPUf4PK4IxiOmxczeF5qGlGnOcvvNTIIzRBitJOr01fzhbCVSrG8u651RMhjEzBni9tluSkWTqo0LH36Bg%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:51:25 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IkOpEPUf4PK4IxiOmxczeF5qGlGnOcvvNTIIzRBitJOr01fzhbCVSrG8u651RMhjEzBni9tluSkWTqo0LH36Bg==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=NR%2BT12St0UHzJKUHF6iSgr6DFJRySiHE5gYK66NBXFa8j200FAKk%2Bfq7Bif5%2B2mZ89lpTg4WUwLFeqgSn14Sww%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:53:06 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NR+T12St0UHzJKUHF6iSgr6DFJRySiHE5gYK66NBXFa8j200FAKk+fq7Bif5+2mZ89lpTg4WUwLFeqgSn14Sww==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 31ms (Views: 18.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=JXscePS6a%2BQMTCtHDssMpy3NVl8xpFyl2oC1JKVBdces6%2BKbhBUeXAXTiGfgmPe8YJcrhU34LmP5%2FBfdmV47Ug%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:53:16 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JXscePS6a+QMTCtHDssMpy3NVl8xpFyl2oC1JKVBdces6+KbhBUeXAXTiGfgmPe8YJcrhU34LmP5/BfdmV47Ug==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=QrzXskQJXG52qjLlJAtdu7ONI3409gJbeHiagvkZjtLLLClRNKYp1n81kcXKWKag%2FtdepEiqcJ1bBDh7xQbARw%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:53:25 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QrzXskQJXG52qjLlJAtdu7ONI3409gJbeHiagvkZjtLLLClRNKYp1n81kcXKWKag/tdepEiqcJ1bBDh7xQbARw==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=QrzXskQJXG52qjLlJAtdu7ONI3409gJbeHiagvkZjtLLLClRNKYp1n81kcXKWKag%2FtdepEiqcJ1bBDh7xQbARw%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:54:15 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QrzXskQJXG52qjLlJAtdu7ONI3409gJbeHiagvkZjtLLLClRNKYp1n81kcXKWKag/tdepEiqcJ1bBDh7xQbARw==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=QrzXskQJXG52qjLlJAtdu7ONI3409gJbeHiagvkZjtLLLClRNKYp1n81kcXKWKag%2FtdepEiqcJ1bBDh7xQbARw%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:54:18 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QrzXskQJXG52qjLlJAtdu7ONI3409gJbeHiagvkZjtLLLClRNKYp1n81kcXKWKag/tdepEiqcJ1bBDh7xQbARw==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=WNlxNae2bIvmMrfSSWI0n0%2Bzd3izB6Y2ZXcvgUWlghjRSY%2FW1xkZM%2B%2BtFPKnMc%2BEAukKos9b1PBGC414ebrMjQ%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:54:25 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WNlxNae2bIvmMrfSSWI0n0+zd3izB6Y2ZXcvgUWlghjRSY/W1xkZM++tFPKnMc+EAukKos9b1PBGC414ebrMjQ==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=WNlxNae2bIvmMrfSSWI0n0%2Bzd3izB6Y2ZXcvgUWlghjRSY%2FW1xkZM%2B%2BtFPKnMc%2BEAukKos9b1PBGC414ebrMjQ%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:54:37 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WNlxNae2bIvmMrfSSWI0n0+zd3izB6Y2ZXcvgUWlghjRSY/W1xkZM++tFPKnMc+EAukKos9b1PBGC414ebrMjQ==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 197ms (Views: 175.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:54:40 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 14.6ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=ETLJs2fW26SzfSBeKH9bBP%2FXioKpmRa5xO7UJQV6tlKYojdQF3muHLrig37GLKAfso33WNXFZH%2FnknbcOWX4xw%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:54:46 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETLJs2fW26SzfSBeKH9bBP/XioKpmRa5xO7UJQV6tlKYojdQF3muHLrig37GLKAfso33WNXFZH/nknbcOWX4xw==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-10-24 17:56:29 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"soW+XtC+G104+6uP13xsQu9/bmexM7BmWODnmSZAImA7FUC9oBFu5TFkCK85L5dZoiUTvc1vwqB7nEVgGl9s9Q==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "RamyKhorshed@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 11893ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 17:56:41 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=U81NMza2wtTDRDaQ9UgHquJ1rElPCyqfqqVJwkxBz8naXbPQRhm3bMrblbAbG%2Fyxry%2FRkzNXWFmJ2es7cF6BXA%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:45 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U81NMza2wtTDRDaQ9UgHquJ1rElPCyqfqqVJwkxBz8naXbPQRhm3bMrblbAbG/yxry/RkzNXWFmJ2es7cF6BXA==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=sjyKEPygkm%2B4vEH6xd5%2BroGbiFTYWKDrmOTzXh3SHKQ7rHTzjA%2Fn17Ej4torjYW1zMH1jqQE0i27mFGnIc1SMQ%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:46 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sjyKEPygkm+4vEH6xd5+roGbiFTYWKDrmOTzXh3SHKQ7rHTzjA/n17Ej4torjYW1zMH1jqQE0i27mFGnIc1SMQ==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 53ms (Views: 49.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=eN4dFHbKBFYYDN6xmRaN8IjaNJu7%2FbVMO0ozZyvjHifxTuP3BmVx7hGTfZF3RXbrxYBJQcehx4oYNpGeF%2FxQsg%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:46 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eN4dFHbKBFYYDN6xmRaN8IjaNJu7/bVMO0ozZyvjHifxTuP3BmVx7hGTfZF3RXbrxYBJQcehx4oYNpGeF/xQsg==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 26ms (Views: 23.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=OzBfm5yUahWV2im6nPF5FOi%2BAQ04uED6vzT9O3D93fWyoKF47DsfrZxFippyooIPpeR810TkMjycSF%2FCTOKTYA%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:46 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OzBfm5yUahWV2im6nPF5FOi+AQ04uED6vzT9O3D93fWyoKF47DsfrZxFippyooIPpeR810TkMjycSF/CTOKTYA==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 25ms (Views: 21.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=kvV%2BTxBU8TGLL3BgGg87jv4l%2Bn4M8NWtEXfehMyE%2BBsbZYCsYPuEiYKw00D0XMCVs3%2BHpHCsp2syC3x98Ju2jg%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:47 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kvV+TxBU8TGLL3BgGg87jv4l+n4M8NWtEXfehMyE+BsbZYCsYPuEiYKw00D0XMCVs3+HpHCsp2syC3x98Ju2jg==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=DAAl1BAPKzPvApiN8qyDud3OySESDljJXQ7yEVMY%2FsWFkNs3YKBei%2BadO60c%2F3iikJS0%2B25SKg9%2BclDobwewUA%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:47 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DAAl1BAPKzPvApiN8qyDud3OySESDljJXQ7yEVMY/sWFkNs3YKBei+adO60c/3iikJS0+25SKg9+clDobwewUA==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=aJ73smBkWJn%2BafDhxi%2FpV3qgeAMoRKfmEZ0yEMWlFIbhDglREMstIff2U8EofBJMN%2FoF2VQY1SAy4ZDp%2BbpaEw%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:47 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aJ73smBkWJn+afDhxi/pV3qgeAMoRKfmEZ0yEMWlFIbhDglREMstIff2U8EofBJMN/oF2VQY1SAy4ZDp+bpaEw==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 38ms (Views: 34.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=%2F0SHWcaeYMcsTer84evKGjKvG3JdbVb%2BEmd65GaMinh21Hm6tjEVfyXSSdwPuDEBf%2FVmqCExJDgxG9gdWpPE7Q%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:47 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/0SHWcaeYMcsTer84evKGjKvG3JdbVb+Emd65GaMinh21Hm6tjEVfyXSSdwPuDEBf/VmqCExJDgxG9gdWpPE7Q==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 26ms (Views: 23.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=KWDwjLHB9etiT2Zx33AU2EKgtrIRCRCqPrgPK3qhfVSg8A5vwW6AU2vQxVExI%2B%2FDD%2FrLaG1VYmwdxK3SRr4zwQ%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:47 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KWDwjLHB9etiT2Zx33AU2EKgtrIRCRCqPrgPK3qhfVSg8A5vwW6AU2vQxVExI+/DD/rLaG1VYmwdxK3SRr4zwQ==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=tGz8K%2Bgdaj08OgPVOoNQEsdqca5g3I4jjyoh2b148UE9%2FALImLIfhTWloPXU0KsJijAMdByA%2FOWsVoMggWe%2F1A%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:47 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tGz8K+gdaj08OgPVOoNQEsdqca5g3I4jjyoh2b148UE9/ALImLIfhTWloPXU0KsJijAMdByA/OWsVoMggWe/1A==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=dw3QrR0iKfu8cGbLhOoGa9%2FNOuVs63aVBXlfV92lI%2F7%2BnS5ObY1cQ7Xvxetquf1wkpdHPxC3BFMmBf2u4bptaw%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:48 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dw3QrR0iKfu8cGbLhOoGa9/NOuVs63aVBXlfV92lI/7+nS5ObY1cQ7Xvxetquf1wkpdHPxC3BFMmBf2u4bptaw==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=SvD5ba%2F8QU5P5xrJjwuH%2Bzpdo4ibWi5YeuOW8VqNvF7DYAeO31M09kZ4uelhWHzgdwfeUucGXJ5ZnzQIZpLyyw%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:48 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SvD5ba/8QU5P5xrJjwuH+zpdo4ibWi5YeuOW8VqNvF7DYAeO31M09kZ4uelhWHzgdwfeUucGXJ5ZnzQIZpLyyw==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 26ms (Views: 23.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=lIj%2B4RFj38x%2BTB8mt%2FQ5gwIHpPbD7ec0qq6pkq1a7W0dGAACYcyqdHfTvAZZp8KYT13ZLL%2BxlfKJ0gtrkUWj%2BA%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:48 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lIj+4RFj38x+TB8mt/Q5gwIHpPbD7ec0qq6pkq1a7W0dGAACYcyqdHfTvAZZp8KYT13ZLL+xlfKJ0gtrkUWj+A==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=M9HXl%2Fwx%2BnBC59fDpYYW7p3vHDSCLJALjxV3FLuXNqq6QSl0jJ6PyEt4dONL1e310LVh7v5w4s2sadXth4h4Pw%3D%3D&username=dsafld&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:52 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M9HXl/wx+nBC59fDpYYW7p3vHDSCLJALjxV3FLuXNqq6QSl0jJ6PyEt4dONL1e310LVh7v5w4s2sadXth4h4Pw==", "username"=>"dsafld", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=VmxVbMBkv7CSBt%2BMlvpZ3%2F5RtOWzcmTiJMGl0J4VbEnf%2FKuPsMvKCJuZfKx4qaLEswvJP88uFiQHvQcpogoi3A%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:55 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VmxVbMBkv7CSBt+MlvpZ3/5RtOWzcmTiJMGl0J4VbEnf/KuPsMvKCJuZfKx4qaLEswvJP88uFiQHvQcpogoi3A==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=5HpYL1gOAzym2VeM6u4c%2BohkppxiMqh6t1%2Frk2h%2B5AJt6qbMKKF2hK9G9KwEvefhxT7bRh5u2ryUI0lqVGGqlw%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:56:57 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5HpYL1gOAzym2VeM6u4c+ohkppxiMqh6t1/rk2h+5AJt6qbMKKF2hK9G9KwEvefhxT7bRh5u2ryUI0lqVGGqlw==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=5HpYL1gOAzym2VeM6u4c%2BohkppxiMqh6t1%2Frk2h%2B5AJt6qbMKKF2hK9G9KwEvefhxT7bRh5u2ryUI0lqVGGqlw%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:57:20 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5HpYL1gOAzym2VeM6u4c+ohkppxiMqh6t1/rk2h+5AJt6qbMKKF2hK9G9KwEvefhxT7bRh5u2ryUI0lqVGGqlw==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=5HpYL1gOAzym2VeM6u4c%2BohkppxiMqh6t1%2Frk2h%2B5AJt6qbMKKF2hK9G9KwEvefhxT7bRh5u2ryUI0lqVGGqlw%3D%3D&username=RamyKhorshed%40gmail.com&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 17:57:21 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5HpYL1gOAzym2VeM6u4c+ohkppxiMqh6t1/rk2h+5AJt6qbMKKF2hK9G9KwEvefhxT7bRh5u2ryUI0lqVGGqlw==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-10-24 17:57:27 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lryoSt5BhmvSNn0AKrXCTVddkGXaQiYhQkl/Ml/VO3IfLFapru7z09up3iDE5jlWGgftv6YeVOdhNd3LY8p15w==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "marcelo"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 13857ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2017-10-24 17:57:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.4ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.3ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered users/show.html.erb within layouts/application (32.6ms)
+Completed 200 OK in 81ms (Views: 46.4ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-10-24 18:00:06 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login?utf8=%E2%9C%93&authenticity_token=ETLJs2fW26SzfSBeKH9bBP%2FXioKpmRa5xO7UJQV6tlKYojdQF3muHLrig37GLKAfso33WNXFZH%2FnknbcOWX4xw%3D%3D&username=marcelo&password=[FILTERED]&commit=submit" for 127.0.0.1 at 2017-10-24 18:02:51 -0400
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETLJs2fW26SzfSBeKH9bBP/XioKpmRa5xO7UJQV6tlKYojdQF3muHLrig37GLKAfso33WNXFZH/nknbcOWX4xw==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/9
+Filter chain halted as :already_logged_in? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2017-10-24 18:02:51 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.2ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 23ms (Views: 19.0ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-24 18:02:54 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zOypAeklzJCDP/05gvrOZk2KcDixD4Wv8iP5Yue2b/NFfFfimYq5KIqgXhlsqTV9ANAN4s1T92nRX1ub26khZg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:02:54 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-10-24 18:03:00 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D7jY7UA6662nHngs1UKiYatRX9JJ1efVVDdS27KEfreGKCYOMJWeFa6B2ww7EVl65gsiCDWJlRN3S/AijpswIg==", "username"=>"marcelo", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "marcelo"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 5039ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2017-10-24 18:03:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.2ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  [1m[36mBucketlist Load (0.1ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 23ms (Views: 18.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-24 18:03:14 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4gkbG+oqZ94XHtkRMHfRu2ZYYw7gpRHTYe2ZWDhDmT5rmeX4moUSZh6BejHeJCqgKwIe1Jz5YxVCkTuhBFzXqw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:03:14 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:05:26 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:05:27 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:05:27 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:05:59 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:06:00 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:06:11 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 15.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:06:29 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:06:40 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-10-24 18:06:44 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vj/3XNOnhwtFGF3QJLiwyvUY8/5YTZVfc3R9+kOfooDfrwm/owjys0yH/vDK60vRuEKOJCQR55lQCN8Df4DsFQ==", "username"=>"RamyKhorshed@gmail.com", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "RamyKhorshed@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4252ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-24 18:06:49 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 0.3ms)
+
+
