@@ -46,3 +46,7 @@
   <%= f.text_field :password %>
   <%= f.submit "Delete"%>
 <% end %>
+
+<button type="button" name="button">
+  <%= link_to("Log Out", delete_sessions_path, method: :delete) %>
+</button>

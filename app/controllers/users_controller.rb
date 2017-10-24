@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authorized, only: [:new, :create]
+  before_action :already_logged_in?, only:[:new,:create]
 
   def index
     @users = User.all
