@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
-
+    @user = User.new
   end
 
   def create
@@ -18,11 +18,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+
+    @user = User.find_by(id: params[:id])
   end
 
   def update
-
+    @user = User.find_by(id: params[:id])
+    @user.update(user_params)
+    if @user.save
+      redirect_to "/users/#{@user.id}"
+    else
+      render :edit
+    end
   end
 
   private
