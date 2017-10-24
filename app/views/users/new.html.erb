@@ -1,18 +1,19 @@
-<h1>Welcome to TrackeRapper</h1>
 
-<div>
-<h2>Create User</h2>
+<%= form_for @user, controller: 'users', action: 'create' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-  <%= form_for @user do |f| %>
-    <label for=:name>Name:</label>
-    <%= f.text_field :name %><br>
-    <label for=:quote>Quote:</label>
-    <%= f.text_field :quote %><br>
-    <label for=:password>Password:</label>
-    <%= f.password_field :password %><br>
-    <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation %><br>
-    <%= f.submit %>
-  <% end %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
 
-</div>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "create" %>
+<% end %>

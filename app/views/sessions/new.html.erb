@@ -1,5 +1,13 @@
-<%= form_tag login_path do %>
-  <%= text_field_tag :name%>
-  <%= text_field_tag :password %>
-  <%= submit_tag 'Login' %>
-<% end %>
+<h1>Welcome to TrackSuite</h1>
+
+<%= form_for @user, url: login_path, method: :post do |f| %>
+   <%= f.label :username %>
+   <%= f.text_field :username %>
+
+   <%= f.label :password %>
+   <%= f.password_field :password %>
+
+   <%= f.submit "log in" %>
+ <% end %>
+
+ <p> Not registered yet? <a href="/users/new"> Sign up here</a></p>
