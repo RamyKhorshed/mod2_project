@@ -13837,3 +13837,493 @@ Processing by ActivitiesController#show as HTML
 Completed 200 OK in 31ms (Views: 17.2ms | ActiveRecord: 2.1ms)
 
 
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-25 09:23:52 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xatOxvbrQhbbenMrr6P5kg81R5rrMqyenzHrvsHBgFC73f8/hA2l8K18oGvhxss0jLL94vwkNyl2f9S3RAyXJw=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 37ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:23:52 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 214ms (Views: 210.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-10-25 09:24:01 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kfc+pKkKNI0HDr+ves/CHnWOiu2h3I7WH7/QYY4wJ0TvgY9d2+zTa3EIbO80qvC49gkwlbbKFWH28e9oC/0wMw==", "username"=>"Robert", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Robert"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 8130ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2017-10-25 09:24:09 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (1.7ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mBucketlist Load (0.4ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mActivity Load (0.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  Rendered users/show.html.erb within layouts/application (91.2ms)
+Completed 200 OK in 186ms (Views: 101.5ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/activities" for 127.0.0.1 at 2017-10-25 09:24:28 -0400
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "fitness"]]
+  [1m[36mActivity Load (0.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "relationship"]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "intellectual"]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "domestic"]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "soul searching"]]
+  Rendered activities/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 48ms (Views: 41.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/achievements" for 127.0.0.1 at 2017-10-25 09:24:30 -0400
+Processing by AchievementsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering achievements/index.html.erb within layouts/application
+  [1m[36mAchievement Load (0.4ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements"[0m
+  Rendered achievements/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 48ms (Views: 42.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/achievements/4" for 127.0.0.1 at 2017-10-25 09:24:31 -0400
+Processing by AchievementsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" WHERE "achievements"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" WHERE "achievements"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAchievement Load (0.9ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mAchievement Load (1.0ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mAchievement Load (0.7ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mAchievement Load (1.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  Rendering achievements/show.html.erb within layouts/application
+  Rendered achievements/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 49ms (Views: 30.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/achievements/3" for 127.0.0.1 at 2017-10-25 09:24:32 -0400
+Processing by AchievementsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" WHERE "achievements"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Achievement Load (0.0ms)[0m  [1m[34mSELECT  "achievements".* FROM "achievements" WHERE "achievements"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAchievement Load (0.8ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mAchievement Load (0.5ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  Rendering achievements/show.html.erb within layouts/application
+  Rendered achievements/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 38ms (Views: 21.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/activities" for 127.0.0.1 at 2017-10-25 09:24:35 -0400
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.9ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "fitness"]]
+  [1m[36mActivity Load (0.6ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "relationship"]]
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "intellectual"]]
+  [1m[36mActivity Load (0.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "domestic"]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."category" = $1[0m  [["category", "soul searching"]]
+  Rendered activities/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 35ms (Views: 27.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/activities/9" for 127.0.0.1 at 2017-10-25 09:24:36 -0400
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mActivity Load (0.8ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mActivity Load (0.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mActivity Load (0.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mCACHE Activity Load (0.0ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 17.4ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/bucketlists" for 127.0.0.1 at 2017-10-25 09:24:43 -0400
+Processing by BucketlistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b6FCsK7FGRxmH56/Z2jxyiYESpzaDb875TTMrtmDh4ER1/NJ3CP++hAZTf8pDcNspYPw5M0bJIwMevOnXE6Q9g==", "user_id"=>"6", "bucketlist"=>{"name"=>"thing", "description"=>"thing"}, "commit"=>"Add Item"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "bucketlists" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "thing"], ["description", "thing"], ["user_id", 6], ["created_at", "2017-10-25 13:24:43.132590"], ["updated_at", "2017-10-25 13:24:43.132590"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 11ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2017-10-25 09:24:43 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.8ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mBucketlist Load (0.6ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  Rendered users/show.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 46ms (Views: 38.1ms | ActiveRecord: 2.3ms)
+
+
+Started PUT "/bucketlists/14/delete" for 127.0.0.1 at 2017-10-25 09:24:45 -0400
+Processing by BucketlistsController#delete as HTML
+  Parameters: {"authenticity_token"=>"CxSg6AEeCJVE5hEOHbXn7WN6r/PV9hyJhqCmDRClIeZ1YhERc/jvczLgwk5T0NVL4P0Vi8Lghz5v7pkElWg2kQ==", "bucketlist_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBucketlist Load (0.4ms)[0m  [1m[34mSELECT  "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "bucketlists" WHERE "bucketlists"."id" = $1[0m  [["id", 14]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 16ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2017-10-25 09:24:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.6ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mBucketlist Load (0.4ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mActivity Load (0.6ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  Rendered users/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 46ms (Views: 36.5ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-25 09:24:55 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lH2rSUeN56jm08sro96BY59waxkPZBPEIYE1tV4em1zqCxqwNWsATpDVGGvtu7PFHPfRYRhyiHPIzwq829OMKw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:24:55 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 36.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2017-10-25 09:25:01 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:25:01 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 37ms (Views: 32.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-25 09:25:05 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 30ms (Views: 26.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-10-25 09:25:16 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YXs8O/r66YCOQATqHY44yRPKgFyx8MfkWmzw63joLwYfDY3CiBwOZvhG16pT6wpvkE06JKbmXFOzIs/i/SU4cQ==", "username"=>"Robert", "password"=>"[FILTERED]", "commit"=>"submit"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Robert"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 8111ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2017-10-25 09:25:24 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.3ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mBucketlist Load (0.3ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  Rendered users/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 33ms (Views: 25.5ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-25 09:25:55 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NhMepRcurAk6wIXKU8v9Yz/ZJ2say+ht9Sgza1ee3SpIZa9cZchL70zGVoodrs/FvF6dEw3dc9ocZgxi0lPKXQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:25:55 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-25 09:25:56 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 26ms (Views: 22.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-25 09:26:07 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qSGv0WJUD1xghHeUy985Dz4+QTOFfd2rP8xqNF1BkF6EkfC2oBP32Jd5+2wQtKQjU3WwhI7qsgAa8NOSzlsWpQ==", "user"=>{"name"=>"Bob", "username"=>"Bob", "email"=>"rspeckpfs@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rspeckpfs@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bob"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/users" for 127.0.0.1 at 2017-10-25 09:28:06 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:28:07 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 178ms (Views: 173.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-25 09:28:13 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-25 09:28:23 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x3jXcobpcG2NZR8LZ/+IzycywNnbX118kGcp6ored8LqyIgVRK6I6XqYk/O8lBXjSnkxbtDIMte1W5BMGcTxOQ==", "user"=>{"name"=>"Billy", "username"=>"Billy", "email"=>"rspeckpfs@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rspeckpfs@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Billy"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 98ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-25 09:28:23 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 22ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-10-25 09:29:04 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorized rendered or redirected
+Completed 302 Found in 13ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:29:04 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 25ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:29:05 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 39ms (Views: 30.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-25 09:29:06 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 37ms (Views: 32.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-25 09:29:28 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a8MHpqijksOAaDgpjErI1XOoXQIQ/0S/w1E5hWteUSxGc1jBauRqR3eVtNFXIVX5HuOstRtoKxTmbYAj+ETX1w==", "user"=>{"name"=>"Bill", "username"=>"Bill", "email"=>"bill@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bill@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bill"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "username", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bill"], ["created_at", "2017-10-25 13:29:28.562848"], ["updated_at", "2017-10-25 13:29:28.562848"], ["email", "bill@gmail.com"], ["username", "Bill"], ["password_digest", "$2a$10$0xd3LyWidg1hfeitWCaJeO8DPEINi0QUpfewV5WsbslTK0pkaXSFW"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 86ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2017-10-25 09:29:28 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.9ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mBucketlist Load (0.3ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 7]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 7]]
+  Rendered users/show.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 81ms (Views: 34.9ms | ActiveRecord: 13.5ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-25 09:29:46 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ntF4ZrT/XDWCHQ8OF2z2p+SHw7JeYWAJ1NCmyseK+SXgp8mfxhm70/Qb3E5ZCcQBZwB5ykl3+749npnDQkfuUg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 21ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:29:46 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-25 09:29:48 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 20.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-25 09:30:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tJpsO0ZEiYz3HjhduTbE43AsTO5vaDpH0/bU/Nex8ZSZKjNchANxCADjtKViXVnPHWe9WWT/Vez2ym1aRKt3bw==", "user"=>{"name"=>"Bol", "username"=>"Bol", "email"=>"bol@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bol@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bol"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "username", "password_digest") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bol"], ["created_at", "2017-10-25 13:30:03.386574"], ["updated_at", "2017-10-25 13:30:03.386574"], ["email", "bol@gmail.com"], ["username", "Bol"], ["password_digest", "$2a$10$dHioYvijTu0BEGoO8J2SCuKx5flNMFC0AzVMChstcPay9ICi7M67S"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 71ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2017-10-25 09:30:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.5ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mBucketlist Load (0.2ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/show.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 69ms (Views: 25.2ms | ActiveRecord: 13.2ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-25 09:30:37 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RDhj7WAJhPy+re7No3TPzqAfVSW4ae2sqPsL2NKnx+E6TtIUEu9jGsirPY3tEf1oI5jvXa9/dhtBtTTRV2rQlg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:30:37 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 09:30:39 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 31ms (Views: 24.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-25 09:30:40 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 26ms (Views: 22.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-25 09:30:52 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g+S+5sW9AGI+mCyrq8aOzUVkel19OkDZ/Fh6CuAakfyuVOGBB/r45slloFNwrRPhKC+L6natL3LZZMOscwAXBw==", "user"=>{"name"=>"Add", "username"=>"Add", "email"=>"add@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "add@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Add"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 70ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-10-25 09:30:52 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.3ms)
+
+

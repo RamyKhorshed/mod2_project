@@ -10,11 +10,18 @@
 </br>
 <h3><%= link_to "All Achievements", achievements_path %></h3>
 
+<h3>Bucket List</h3>
+<ul>
+ <% @all_bucketlist.each do |item| %>
 
-<h3>Bucketlist</h3>
-<% @all_bucketlist.each do |item| %>
-  <li><%= item.name %>, <%= item.description %></li>
-<% end %>
+ <li>
+     Name: <%= item.name %>
+     Description: <%= item.description %>
+     <%= button_to("Delete!", bucketlist_delete_path(item), method: :put) %>
+   </li>
+
+ <% end %>
+</ul>
 
 <h3>Add Item to Bucketlist</h3>
 <%= form_for @bucketlist do |f| %>
@@ -26,13 +33,6 @@
 <%= f.submit "Add Item" %>
 <% end %>
 
-</br>
-<h3>Enter the name of an item to remove it from your bucketlist</h3>
-<%= form_for @bucketlist do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.submit "Remove Item" %>
-<% end %>
 
 <h3>Completed Activities</h3>
 <% if @all_activities.length == 0 %>

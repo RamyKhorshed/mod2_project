@@ -10,14 +10,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @user = User.new(user_params)
       if @user.save && params[:password] == params[:password_confirmation] #should be user_params both times??
-        binding.pry
+        # binding.pry
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        binding.pry
+        # binding.pry
         redirect_to controller: 'users', action: 'new'
       end
    end
