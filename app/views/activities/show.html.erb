@@ -1,0 +1,5 @@
+<h2>Other people who like <%= @activity.name %></h2>
+
+<% @users.each do |user| %>
+  <%= link_to user.name, user_path(user) %>
+<% end %>

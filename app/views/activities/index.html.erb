@@ -1,0 +1,51 @@
+<h1>All Activities</h1>
+
+<h3>Fitness</h3>
+<div>
+  <% @fitness.each do |fitness| %>
+    <% if @fitness.length == 0 %>
+      <li> No fitness activities :(</li>
+    <% end %>
+    <li><%= link_to fitness.name, activity_path(fitness) %></li>
+  <% end %>
+</div> </br>
+
+<h3>Relationship</h3>
+<div>
+  <% if @relationship.length == 0 %>
+  <li> No relationship activities :(</li>
+  <% end %>
+  <% @relationship.each do |relationship| %>
+    <li><%= link_to relationship.name, activity_path(relationship) %></li>
+  <% end %>
+</div> </br>
+
+<h3>Intellectual</h3>
+<div>
+  <% if @intellectual.length == 0 %>
+  <li> No intellectual activities :(</li>
+  <% end %>
+  <% @intellectual.each do |intellectual| %>
+    <li><%= link_to intellectual.name, activity_path(intellectual) %></li>
+  <% end %>
+</div> </br>
+
+<h3>Domestic</h3>
+<div>
+  <% if @domestic.length == 0 %>
+  <li> No domestic activities :(</li>
+  <% end %>
+  <% @domestic.each do |domestic| %>
+    <li><%= link_to domestic.name, activity_path(domestic) %></li>
+  <% end %>
+</div> </br>
+
+<h3>Soul Searching</h3>
+<div>
+  <% if @soul_searching.length == 0 %>
+  <li> No soul searching activities :(</li>
+  <% end %>
+  <% @soul_searching.each do |soul_searching| %>
+    <li><%= link_to soul_searching.name, activity_path(soul_searching) %></li>
+  <% end %>
+</div>

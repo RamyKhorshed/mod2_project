@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     binding.pry
     @user = User.new(user_params)
-      if @user.save && params[:password] == params[:password_confirmation]
+      if @user.save && params[:password] == params[:password_confirmation] #should be user_params both times??
         binding.pry
         session[:user_id] = @user.id
         redirect_to user_path(@user)
@@ -25,9 +25,9 @@ class UsersController < ApplicationController
 
    def show
      find_user
-     @activity = Activity.new
      @public_achievements = Achievement.all
      @all_bucketlist = find_user.bucketlists
+     @all_activities = find_user.activities
      @bucketlist = Bucketlist.new
    end
 

@@ -15,7 +15,6 @@ class BucketlistsController < ApplicationController
 
   def delete
     @bucketlist = Bucketlist.find_by(id: params[:id])
-  byebug
     if params[:name]
     end
   end
