@@ -15,7 +15,6 @@
   <% if item.accomplished == false %>
    <li>
        Name: <%= item.name %>
-       Description: <%= item.description %>
        <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
        <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
      </li>
@@ -24,28 +23,16 @@
 </ul>
 
 <% if @current_user == @user %>
+
 <h3>Add New Activity </h3>
 <%= form_tag activities_path, method: "post" do %>
-<input type="hidden" name="user_id" value="<%=@user.id%>">
-<%= select_tag "activity", options_for_select(@activities_list.map {|activity|  activity})%>
-<%= submit_tag "Submit", name: nil %>
+  <input type="hidden" name="user_id" value="<%=@user.id%>">
+  <%= select_tag "activity", options_for_select(@activities_list.map {|activity|  activity})%>
+  <%= submit_tag "Submit", name: nil %>
 <% end %>
-<%end%>
 
-<% if @simulation.errors.any? %>
-    <% @simulation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
-<% end %>
-<h3>Or Make a New Activity</h3> <% #not working yet! %>
-<%= form_tag activities_path, method: "post" do %>
-<input type="hidden" name="user_id" value="<%=@user.id%>">
-<input type="hidden" name="points" value=10>
-Name: <%= text_field_tag :name %>
-Description: <%= text_field_tag :description %>
-Category: <%= select_tag "category", options_for_select(@categories.map {|category|  category})%>
-<%= submit_tag "Create an Activity" %>
-<% end %>
+
+<%end%>
 
 
 
@@ -54,8 +41,9 @@ Category: <%= select_tag "category", options_for_select(@categories.map {|catego
   <li> No activities completed :(</li>
 <% end %>
 <% @all_activities.each do |item| %>
+
   <% if item.accomplished == true %>
-    <li><%= item.name %>, <%= item.description %></li>
+    <li><%= item.name %></li>
   <% end %>
 <% end %>
 </br>
@@ -71,7 +59,7 @@ Category: <%= select_tag "category", options_for_select(@categories.map {|catego
 <%= form_for @user do |f| %>
   <%= f.label :password %>
   <%= f.text_field :password %>
-  <%= f.submit "Delete"%>
+  <%= link_to 'Destroy', @user, method: :delete %>
 <% end %>
 </div>
 <%end%>

@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
   before_action :already_logged_in?, only:[:new,:create]
 
-  # ACTIVITIES = ["5k" => {name: "5k", description: "Run a 5k", category: "fitness", points: 10}, "Reading" => {name: "Read a book", description: "Read a book", category: "intellectual", accomplished: false}]
-
   def index
     @users = User.all
   end
@@ -27,8 +25,9 @@ class UsersController < ApplicationController
      @activities_list = Activity.distinct.pluck(:name)
      @public_achievements = find_user.achievements
      @all_activities = find_user.activities
+
      @activities = Activity.all
-     @categories = ['Fitness', 'Relationship', 'Intellectual', 'Domestic', 'Soul Searching']
+     @categories = ['Health & Fitness', 'Relationships & Well-Being', 'Intellectual', 'Purpose', 'Professional']
    end
 
   def edit
@@ -47,12 +46,10 @@ class UsersController < ApplicationController
 
   def destroy
     find_user.destroy
+    session[:user_id] = nil
     redirect_to '/login'
   end
 
-  # def activities_list
-  #   ACTIVITIES.first.keys
-  # end
 
   private
   def user_params
@@ -61,5 +58,6 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by(id: params[:id])
   end
+
 
 end
