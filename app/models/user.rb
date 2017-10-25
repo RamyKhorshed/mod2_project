@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :bucketlists
   has_many :user_activities
   has_many :activities, through: :user_activities
   has_many :achievements, through: :activities
