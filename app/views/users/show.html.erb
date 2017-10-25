@@ -12,13 +12,14 @@
 <h3>Activities to do</h3>
 <ul>
  <% @all_activities.each do |item| %>
-
- <li>
-     Name: <%= item.name %>
-     Description: <%= item.description %>
-     <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
-   </li>
-
+  <% if item.accomplished == false %>
+   <li>
+       Name: <%= item.name %>
+       Description: <%= item.description %>
+       <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
+       <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
+     </li>
+  <% end %>
  <% end %>
 </ul>
 
@@ -30,6 +31,7 @@
 <%= submit_tag "Submit", name: nil %>
 <% end %>
 <%end%>
+
 
 
 <h3>Completed Activities</h3>

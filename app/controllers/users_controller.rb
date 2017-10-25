@@ -33,6 +33,7 @@ class UsersController < ApplicationController
      @all_activities = find_user.activities
      @bucketlist = Bucketlist.new
      @activities = Activity.all
+     @categories = ['Fitness', 'Relationship', 'Intellectual', 'Domestic', 'Soul Searching']
    end
 
   def edit
