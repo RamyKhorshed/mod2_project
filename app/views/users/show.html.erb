@@ -25,10 +25,21 @@
 <% if @current_user == @user %>
 
 <h3>Add New Activity </h3>
-<%= form_tag activities_path, method: "post" do %>
-  <input type="hidden" name="user_id" value="<%=@user.id%>">
-  <%= select_tag "activity", options_for_select(@activities_list.map {|activity|  activity})%>
-  <%= submit_tag "Submit", name: nil %>
+
+<%= form_for @activities do |f| %>
+  <%= f.hidden_field :user_id, :value => @user.id%>
+  <%= f.select :name, @activities_list.collect {|activity| activity} %>
+  <%= f.submit "Create Activity" %>
+<% end %>
+
+<h3>Or Make a New Activity</h3>
+<%= form_for @activities do |f|%>
+  <%= f.hidden_field :user_id, :value => @user.id%>
+  <%= f.hidden_field :points, :value => 10 %>
+  <%= f.hidden_field :accomplished, :value => false %>
+  <%= f.text_field :name %>
+  <%= f.select :category, @categories.collect {|category| category}%>
+  <%= submit_tag "Create an Activity" %>
 <% end %>
 
 
@@ -37,14 +48,15 @@
 
 
 <h3>Completed Activities</h3>
-<% if @all_activities.length == 0 %>
+<% if @grouped_activities.length == 0 %>
   <li> No activities completed :(</li>
 <% end %>
-<% @all_activities.each do |item| %>
-
-  <% if item.accomplished == true %>
-    <li><%= item.name %></li>
-  <% end %>
+<% @grouped_activities.each do |item, count| %>
+  <li><%= item %>
+    <% if count > 1 %>
+    , <%= count %>
+    <% end %>
+  </li>
 <% end %>
 </br>
 
