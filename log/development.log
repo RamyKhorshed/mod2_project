@@ -14327,3 +14327,44 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2017-10-25 10:28:37 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/9
+Filter chain halted as :already_logged_in? rendered or redirected
+Completed 302 Found in 41ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2017-10-25 10:28:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (0.8ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mBucketlist Load (0.2ms)[0m  [1m[34mSELECT "bucketlists".* FROM "bucketlists" WHERE "bucketlists"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered users/show.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 281ms (Views: 234.5ms | ActiveRecord: 11.0ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-10-25 10:28:41 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xx8XFJe5cZ5iLrw+M2mE15TWUvkED5U1/7FlaUjcBJ1Oj+n35xYEJmuxHx7dOn/M2YwvI3hT5/PczceQdMNKCA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-10-25 10:28:41 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.2ms)
+
+
