@@ -12,14 +12,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    # binding.pry
     @user = User.new(user_params)
       if @user.save && params[:password] == params[:password_confirmation] #should be user_params both times??
-        # binding.pry
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        # binding.pry
         redirect_to controller: 'users', action: 'new'
       end
    end
@@ -29,9 +26,7 @@ class UsersController < ApplicationController
      find_user
      @activities_list = Activity.distinct.pluck(:name)
      @public_achievements = find_user.achievements
-     @all_bucketlist = find_user.bucketlists
      @all_activities = find_user.activities
-     @bucketlist = Bucketlist.new
      @activities = Activity.all
      @categories = ['Fitness', 'Relationship', 'Intellectual', 'Domestic', 'Soul Searching']
    end
