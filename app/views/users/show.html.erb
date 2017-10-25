@@ -1,11 +1,14 @@
 <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
 
-<h3><%= link_to "All Achievements", achievements_path %></h3>
-<% @public_achievements.each do |achievement| %>
-  <ul>
-  <li><%= link_to achievement.name, achievement_path(achievement) %>, <%= achievement.description %></li>
-  </ul>
+<h3>Completed Activities</h3>
+<% if @public_achievements.length == 0 %>
+  <li> Nothing achieved :( </li>
 <% end %>
+<% @public_achievements.each do |item| %>
+  <li><%= item.name %>, <%= item.description %></li>
+<% end %>
+</br>
+<h3><%= link_to "All Achievements", achievements_path %></h3>
 
 
 <h3>Bucketlist</h3>
