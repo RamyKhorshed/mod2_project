@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025173634) do
+ActiveRecord::Schema.define(version: 20171023185044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,11 @@ ActiveRecord::Schema.define(version: 20171025173634) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
-    t.string "description"
     t.string "category"
     t.integer "points"
+    t.boolean "accomplished"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "accomplished"
   end
 
   create_table "activity_achievements", force: :cascade do |t|
@@ -49,13 +48,11 @@ ActiveRecord::Schema.define(version: 20171025173634) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "quote"
-    t.string "password"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
-    t.string "username"
-    t.string "password_digest"
   end
 
 end

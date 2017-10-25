@@ -5,6 +5,5 @@ class Activity < ApplicationRecord
   has_many :achievements, through: :activity_achievements
 
   validates :name, presence: {message: "needs a name"}
-  validates :description, presence: {message: "needs a description"}
   validates :category, presence: {message: "needs a category"}
 end

@@ -32,6 +32,21 @@
 <% end %>
 <%end%>
 
+<% if @simulation.errors.any? %>
+    <% @simulation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+<% end %>
+<h3>Or Make a New Activity</h3> <% #not working yet! %>
+<%= form_tag activities_path, method: "post" do %>
+<input type="hidden" name="user_id" value="<%=@user.id%>">
+<input type="hidden" name="points" value=10>
+Name: <%= text_field_tag :name %>
+Description: <%= text_field_tag :description %>
+Category: <%= select_tag "category", options_for_select(@categories.map {|category|  category})%>
+<%= submit_tag "Create an Activity" %>
+<% end %>
+
 
 
 <h3>Completed Activities</h3>

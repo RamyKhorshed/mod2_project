@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   def destroy
     find_user.destroy
-    redirect_to '/'
+    redirect_to '/login'
   end
 
   # def activities_list
