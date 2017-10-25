@@ -26,7 +26,7 @@ class UsersController < ApplicationController
      @public_achievements = find_user.achievements
      @all_activities = find_user.activities
      @grouped_activities = grouped_activities
-     @activities = Activity.all
+     @activities = Activity.new
      @categories = ['Health & Fitness', 'Relationships & Well-Being', 'Intellectual', 'Purpose', 'Professional']
    end
 
