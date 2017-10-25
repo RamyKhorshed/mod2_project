@@ -9,27 +9,24 @@
 <% end %>
 </br>
 
-<h3>Bucket List</h3>
+<h3>Activities to do</h3>
 <ul>
- <% @all_bucketlist.each do |item| %>
+ <% @all_activities.each do |item| %>
 
  <li>
      Name: <%= item.name %>
      Description: <%= item.description %>
-     <%= button_to("Delete!", bucketlist_delete_path(item), method: :put) %>
+     <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
    </li>
 
  <% end %>
 </ul>
 
-<h3>Add Item to Bucketlist</h3>
-<%= form_for @bucketlist do |f| %>
+<h3>Add New Activity </h3>
+<%= form_tag activities_path, method: "post" do %>
 <input type="hidden" name="user_id" value="<%=@user.id%>">
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :description %>
-<%= f.text_field :description %>
-<%= f.submit "Add Item" %>
+<%= select_tag "activity", options_for_select(@activities_list.map {|activity|  activity})%>
+<%= submit_tag "Submit", name: nil %>
 <% end %>
 
 
@@ -38,7 +35,9 @@
   <li> No activities completed :(</li>
 <% end %>
 <% @all_activities.each do |item| %>
-  <li><%= item.name %>, <%= item.description %></li>
+  <% if item.accomplished == true %>
+    <li><%= item.name %>, <%= item.description %></li>
+  <% end %>
 <% end %>
 </br>
 

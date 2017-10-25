@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+
   def index
     @fitness = activity_fitness
     @relationship = activity_relationship
@@ -17,15 +18,31 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new
-    @user = User.find_by(id: params[:user_id])
-    hash = params[:activity][:name]
-    byebug
-    hash.each do |activity_id|
-      act = Activity.find_or_create_by(id: activity_id)
-      @user.activities << act
-    end
+    @user = User.find_by(id: params[:user_id]) #to associate the new activity with the user making it
+    previous_activity = Activity.find_by(name: params[:activity]) #finds previoius activity with same name
+    @activity = previous_activity.dup #makes a copy of the previous activity
+    @activity.accomplished = false #sets accomplished to false on the new activity
+    @activity.save #saves the activity
+    @user.activities << @activity #associated the activity to the current user
+    redirect_to user_path(@user) #redirect to
   end
+
+  def delete
+   @activity = Activity.find_by(id: params[:activity_id])
+   @activity.destroy
+   redirect_to user_path(session[:user_id])
+ end
+
+  # def create
+  #   @activity = Activity.new
+  #   @user = User.find_by(id: params[:user_id])
+  #   byebug
+  #   hash = params[:activity][:name]
+  #   hash.each do |activity_id|
+  #     act = Activity.find_or_create_by(id: activity_id)
+  #     @user.activities << act
+  #   end
+  # end
 
   def users_with_activity
     @activity = Activity.find_by(id: params[:id])
@@ -59,4 +76,6 @@ class ActivitiesController < ApplicationController
   def activity_soul_searching #meditation, yoga, spiritual explorations
     Activity.all.where(category: 'soul searching')
   end
+
+
 end
