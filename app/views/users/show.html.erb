@@ -1,29 +1,46 @@
 <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+
 <h3><%= link_to "All Achievements", achievements_path %></h3>
 <% @public_achievements.each do |achievement| %>
   <ul>
-  <li><%= link_to achievement.name, achievement_path %>, <%= achievement.description %></li>
+  <li><%= link_to achievement.name, achievement_path(achievement) %>, <%= achievement.description %></li>
   </ul>
 <% end %>
 
 
+<h3>Bucketlist</h3>
+<% @all_bucketlist.each do |item| %>
+  <li><%= item.name %>, <%= item.description %></li>
+<% end %>
+
 <h3>Add Item to Bucketlist</h3>
 <%= form_for @bucketlist do |f| %>
-  <input type="hidden" name="user_id" value="<%=@user.id%>">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit "Add Item" %>
+<input type="hidden" name="user_id" value="<%=@user.id%>">
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<%= f.submit "Add Item" %>
 <% end %>
 
 </br>
 <h3>Enter the name of an item to remove it from your bucketlist</h3>
 <%= form_for @bucketlist do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit "Remove Item" %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit "Remove Item" %>
 <% end %>
+
+<h3>Completed Activities</h3>
+<% if @all_activities.length == 0 %>
+  <li> No activities completed :(</li>
+<% end %>
+<% @all_activities.each do |item| %>
+  <li><%= item.name %>, <%= item.description %></li>
+<% end %>
+</br>
+<h3><%= link_to "All Activities", activities_path %></h3>
+
 
 
 </br></br>
