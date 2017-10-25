@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   delete "sessions", to: "sessions#destroy", as: "delete_sessions"
   resources :achievements
   resources :activities do
+    put '/update', to: 'activities#update'
     put '/delete', to: 'activities#delete'
   end
   resources :users
-  resources :bucketlists do
-     put '/delete', to: 'bucketlists#delete'
-   end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

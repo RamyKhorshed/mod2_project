@@ -33,6 +33,14 @@ class ActivitiesController < ApplicationController
    redirect_to user_path(session[:user_id])
  end
 
+ def update
+   @activity = Activity.find_by(id: params[:activity_id])
+   @user = @activity.user_ids
+   @activity.accomplished = true
+   @activity.save
+   redirect_to user_path(@user)
+ end
+
   # def create
   #   @activity = Activity.new
   #   @user = User.find_by(id: params[:user_id])

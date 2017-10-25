@@ -3,4 +3,8 @@ class Activity < ApplicationRecord
   has_many :users, through: :user_activities
   has_many :activity_achievements
   has_many :achievements, through: :activity_achievements
+
+  validates :name, presence: {message: "needs a name"}
+  validates :description, presence: {message: "needs a description"}
+  validates :category, presence: {message: "needs a category"}
 end
