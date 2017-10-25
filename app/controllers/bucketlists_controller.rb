@@ -14,10 +14,11 @@ class BucketlistsController < ApplicationController
   end
 
   def delete
-    @bucketlist = Bucketlist.find_by(id: params[:id])
-    if params[:name]
-    end
-  end
+   @bucketlist = Bucketlist.find_by(id: params[:bucketlist_id])
+   @user = @bucketlist.user
+   @bucketlist.destroy
+   redirect_to user_path(@user)
+ end
 
   private
   def bucketlist_params

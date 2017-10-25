@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <% if :logged_in? %>
+      <div >
+        <%= link_to "My Page", user_path %> &nbsp;
+        <%= link_to "All Achievements", achievements_path %> &nbsp;
+        <%= link_to "All Activities", activities_path %> &nbsp;
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
