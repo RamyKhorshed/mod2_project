@@ -1,6 +1,6 @@
 <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
 
-<h3>Completed Activities</h3>
+<h3>Completed Achievements</h3>
 <% if @public_achievements.length == 0 %>
   <li> Nothing achieved :( </li>
 <% end %>
@@ -8,7 +8,6 @@
   <li><%= item.name %>, <%= item.description %></li>
 <% end %>
 </br>
-<h3><%= link_to "All Achievements", achievements_path %></h3>
 
 <h3>Bucket List</h3>
 <ul>
@@ -42,7 +41,6 @@
   <li><%= item.name %>, <%= item.description %></li>
 <% end %>
 </br>
-<h3><%= link_to "All Activities", activities_path %></h3>
 
 
 
@@ -54,7 +52,3 @@
   <%= f.text_field :password %>
   <%= f.submit "Delete"%>
 <% end %>
-
-<button type="button" name="button">
-  <%= link_to("Log Out", delete_sessions_path, method: :delete) %>
-</button>
