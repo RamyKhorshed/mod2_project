@@ -41,22 +41,22 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_fitness #hiking, biking, gym, etc
-    Activity.all.where(category: 'fitness')
+    Activity.all.where(category: 'Health & Fitness')
   end
 
   def activity_relationship #improv classes, lunch date, widening your interpersonal skills
-    Activity.all.where(category: 'relationship')
+    Activity.all.where(category: 'Relationships & Well-Being')
   end
 
   def activity_intellectual #night classes, books read, new topic discovered, talk went to
-    Activity.all.where(category: 'intellectual')
+    Activity.all.where(category: 'Intellectual')
   end
 
   def activity_domestic #stuff around the house. vaccuming, repairs, housework, mowing the lawn, hanging pictures
-    Activity.all.where(category: 'domestic')
+    Activity.all.where(category: 'Purpose')
   end
 
   def activity_soul_searching #meditation, yoga, spiritual explorations
-    Activity.all.where(category: 'soul searching')
+    Activity.all.where(category: 'Professional')
   end
 end
