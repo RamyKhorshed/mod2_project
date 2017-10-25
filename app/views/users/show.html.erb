@@ -37,14 +37,15 @@
 
 
 <h3>Completed Activities</h3>
-<% if @all_activities.length == 0 %>
+<% if @grouped_activities.length == 0 %>
   <li> No activities completed :(</li>
 <% end %>
-<% @all_activities.each do |item| %>
-
-  <% if item.accomplished == true %>
-    <li><%= item.name %></li>
-  <% end %>
+<% @grouped_activities.each do |item, count| %>
+  <li><%= item%>
+    <% if count > 1 %>
+      , <%= count %>
+    <% end %>
+  </li>
 <% end %>
 </br>
 
