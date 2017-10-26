@@ -22,6 +22,12 @@ class UsersController < ApplicationController
 
    def show
      find_user
+     @grouped_user_fitness = grouped_user_fitness
+     @grouped_user_relationship = grouped_user_relationship
+     @grouped_user_intellectual = grouped_user_intellectual
+     @grouped_user_purpose = grouped_user_purpose
+     @grouped_user_professional = grouped_user_professional
+
      @activities_list = Activity.distinct.pluck(:name)
      @public_achievements = find_user.achievements
      @unaccomplished_activities = find_user.activities.where(accomplished: false)
@@ -69,5 +75,22 @@ class UsersController < ApplicationController
     end
     hash
   end
+
+  def grouped_user_fitness
+    grouped_activities.select {|activity| activity.category == "Health & Fitness"}
+  end
+  def grouped_user_relationship
+    grouped_activities.select {|activity| activity.category == "Relationships & Well-Being"}
+  end
+  def grouped_user_intellectual
+    grouped_activities.select {|activity| activity.category == "Intellectual"}
+  end
+  def grouped_user_purpose
+    grouped_activities.select {|activity| activity.category == "Purpose"}
+  end
+  def grouped_user_professional
+    grouped_activities.select {|activity| activity.category == "Professional"}
+  end
+
 
 end

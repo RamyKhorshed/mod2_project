@@ -9,58 +9,116 @@
 <% end %>
 </br>
 
-<h3>Activities to do</h3>
-<% if @unaccomplished_activities.length == 0 %>
-  <li> No activities to work on :( </li>
-<% end %>
-<ul>
- <% @unaccomplished_activities.each do |item| %>
-   <li>
-       Name: <%= item.name %>
-       <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
-       <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
-     </li>
-  <% end %>
-</ul>
+<h3>Completed Activities</h3> <!--yes, repetitive, probably could abstract it out, but it works-->
+
+<div class="row">
+  <div class="col s2">
+  <h3>Fitness</h3>
+    <% if @grouped_user_fitness.length == 0 %>
+      <li> No Fitness and Health activities :(</li>
+    <% end %>
+    <% @grouped_user_fitness.each do |fitness, count| %>
+      <li><%= link_to fitness.name, activity_path(fitness) %>
+      <% if count > 1 %>
+      , <%= count %>
+      <% end %>
+      </li>
+    <% end %>
+  </div>
+
+  <div class="col s2">
+  <h3>Relationship</h3>
+    <% if @grouped_user_relationship.length == 0 %>
+      <li> No Relationship and Well-Being activities :(</li>
+    <% end %>
+    <% @grouped_user_relationship.each do |relationship, count| %>
+      <li><%= link_to relationship.name, activity_path(relationship) %>
+      <% if count > 1 %>
+      , <%= count %>
+      <% end %>
+      </li>
+    <% end %>
+  </div>
+
+  <div class="col s2">
+  <h3>Intellectual</h3>
+    <% if @grouped_user_intellectual.length == 0 %>
+      <li> No Intellectual activities :(</li>
+    <% end %>
+    <% @grouped_user_intellectual.each do |intellectual, count| %>
+      <li><%= link_to intellectual.name, activity_path(intellectual) %>
+      <% if count > 1 %>
+      , <%= count %>
+      <% end %>
+      </li>
+    <% end %>
+  </div>
+
+  <div class="col s2">
+  <h3>Purpose</h3>
+    <% if @grouped_user_purpose.length == 0 %>
+      <li> No Purpose activities :(</li>
+    <% end %>
+    <% @grouped_user_purpose.each do |purpose, count| %>
+      <li><%= link_to purpose.name, activity_path(purpose) %>
+      <% if count > 1 %>
+      , <%= count %>
+      <% end %>
+      </li>
+    <% end %>
+  </div>
+
+  <div class="col s2">
+  <h3>Professional</h3>
+    <% if @grouped_user_professional.length == 0 %>
+      <li> No Professional activities :(</li>
+    <% end %>
+    <% @grouped_user_professional.each do |professional, count| %>
+      <li><%= link_to professional.name, activity_path(professional) %>
+      <% if count > 1 %>
+      , <%= count %>
+      <% end %>
+      </li>
+    <% end %>
+  </div>
+
+</div>
+
 
 <% if @current_user == @user %>
 
-  <h3>Add New Activity </h3>
+  <h3>Activities to do</h3>
+  <% if @unaccomplished_activities.length == 0 %>
+    <li> No activities to work on :( </li>
+  <% end %>
+  <ul>
+   <% @unaccomplished_activities.each do |item| %>
+     <li>
+         Name: <%= item.name %>
+         <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
+         <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
+       </li>
+    <% end %>
+  </ul>
 
+  <h4>Add New Activity </h4>
   <%= form_for @activities do |f| %>
     <%= f.hidden_field :user_id, :value => @user.id%>
-    <%= f.select :name, @activities_list.sort.collect {|activity| activity} %>
+    Activity: <%= f.select :name, @activities_list.sort.collect {|activity| activity}, {}, {class: "browser-default"}%> <!--materialize reformatted how select dropdownsd work, this is a workaround-->
     <%= f.submit "Create Activity" %>
   <% end %>
 
-  <h3>Or Make a New Activity</h3>
+  <h4>Or Make a New Activity</h4>
   <%= form_for @activities do |f|%>
     <%= f.hidden_field :user_id, :value => @user.id%>
     <%= f.hidden_field :points, :value => 10 %>
     <%= f.hidden_field :accomplished, :value => false %>
-    <%= f.text_field :name %>
-    <%= f.select :category, @categories.collect {|category| category}%>
+    Activity Name: <%= f.text_field :name, class: "my_input" %></br>
+    Activity Category: <%= f.select :category, @categories.collect {|category| category}, {}, {class: "browser-default"}%> <!--materialize reformatted how select dropdownsd work, this is a workaround-->
     <%= submit_tag "Create an Activity" %>
   <% end %>
 
 <% end %>
-
-
-
-<h3>Completed Activities</h3>
-<% if @grouped_accomplished_activities.length == 0 %>
-  <li> No activities completed :(</li>
-<% end %>
-<% @grouped_accomplished_activities.each do |item, count| %>
-  <li><%= link_to item.name, activity_path(item) %>
-    <% if count > 1 %>
-    , <%= count %>
-    <% end %>
-  </li>
-<% end %>
-</br>
-
-
 
 </br></br>
 
@@ -70,7 +128,7 @@
 <h4>Enter your password to confirm you want to delete your account</h4>
 <%= form_for @user do |f| %>
   <%= f.label :password %>
-  <%= f.text_field :password %>
+  <%= f.text_field :password, class: "my_input" %>
   <%= link_to 'Destroy', @user, method: :delete %>
 <% end %>
 </div>
