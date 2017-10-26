@@ -24,8 +24,8 @@ class UsersController < ApplicationController
      find_user
      @activities_list = Activity.distinct.pluck(:name)
      @public_achievements = find_user.achievements
-     @all_activities = find_user.activities
-     @grouped_activities = grouped_activities
+     @unaccomplished_activities = find_user.activities.where(accomplished: false)
+     @grouped_accomplished_activities = grouped_activities
      @activities = Activity.new
      @categories = ['Health & Fitness', 'Relationships & Well-Being', 'Intellectual', 'Purpose', 'Professional']
    end
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
     i = 0 #counter for while loop
     hash = {} #empty hash to add to
     while i < grouped.length do
-    hash[grouped.keys[i]] = grouped[grouped.keys[i]].count #key/value of :name/count of like items
+    hash[Activity.find_by(name: grouped.keys[i])] = grouped[grouped.keys[i]].count #key/value of :name/count of like items
     i += 1
     end
     hash

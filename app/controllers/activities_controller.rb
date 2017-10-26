@@ -4,8 +4,8 @@ class ActivitiesController < ApplicationController
     @fitness = activity_fitness
     @relationship = activity_relationship
     @intellectual = activity_intellectual
-    @domestic = activity_domestic
-    @soul_searching = activity_soul_searching
+    @purpose = activity_purpose
+    @professional = activity_professional
   end
 
   def new
@@ -46,7 +46,7 @@ class ActivitiesController < ApplicationController
   end
 
   def users_with_activity
-    @activity = Activity.find_by(id: params[:id])
+    @activity = Activity.find_by(id: params[:id]) 
     activities = []
     User.all.collect do |user|
       user.activities.collect do |activity|
@@ -55,7 +55,7 @@ class ActivitiesController < ApplicationController
         end
       end
     end
-    activities
+    activities.uniq {|p| p.name}
   end
 
   def create_new_activity
@@ -76,23 +76,23 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_fitness #hiking, biking, gym, etc
-    Activity.all.where(category: 'Health & Fitness')
+    Activity.all.where(category: 'Health & Fitness').uniq {|p| p.name} #removes duplicate activities
   end
 
   def activity_relationship #improv classes, lunch date, widening your interpersonal skills
-    Activity.all.where(category: 'Relationships & Well-Being')
+    Activity.all.where(category: 'Relationships & Well-Being').uniq {|p| p.name}
   end
 
   def activity_intellectual #night classes, books read, new topic discovered, talk went to
-    Activity.all.where(category: 'Intellectual')
+    Activity.all.where(category: 'Intellectual').uniq {|p| p.name}
   end
 
-  def activity_domestic #stuff around the house. vaccuming, repairs, housework, mowing the lawn, hanging pictures
-    Activity.all.where(category: 'Purpose')
+  def activity_purpose #stuff around the house. vaccuming, repairs, housework, mowing the lawn, hanging pictures
+    Activity.all.where(category: 'Purpose').uniq {|p| p.name}
   end
 
-  def activity_soul_searching #meditation, yoga, spiritual explorations
-    Activity.all.where(category: 'Professional')
+  def activity_professional #Work life, tasks, projects
+    Activity.all.where(category: 'Professional').uniq {|p| p.name}
   end
 
 
