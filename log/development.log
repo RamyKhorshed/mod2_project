@@ -30070,3 +30070,170 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/6" for 127.0.0.1 at 2017-10-26 15:50:57 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.9ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 AND "activities"."accomplished" = $2[0m  [["user_id", 6], ["accomplished", "t"]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Attend a conference"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Build an army worthy of Sauron"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Bake a cake"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Really Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Mega Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Run a 10k"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Married"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Join Professional Organization"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Invest in Development"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Network"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.8ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 AND "activities"."accomplished" = $2[0m  [["user_id", 6], ["accomplished", "t"]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Attend a conference"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.4ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Build an army worthy of Sauron"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Bake a cake"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Really Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Mega Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Run a 10k"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Married"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Join Professional Organization"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Invest in Development"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Network"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 AND "activities"."accomplished" = $2[0m  [["user_id", 6], ["accomplished", "t"]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Attend a conference"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Build an army worthy of Sauron"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Bake a cake"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Really Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Mega Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Run a 10k"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Married"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Join Professional Organization"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Invest in Development"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Network"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.6ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 AND "activities"."accomplished" = $2[0m  [["user_id", 6], ["accomplished", "t"]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Attend a conference"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Build an army worthy of Sauron"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Bake a cake"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Really Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Mega Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Run a 10k"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Married"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Join Professional Organization"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Invest in Development"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Network"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 AND "activities"."accomplished" = $2[0m  [["user_id", 6], ["accomplished", "t"]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Attend a conference"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Build an army worthy of Sauron"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Bake a cake"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Really Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Mega Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Run a 10k"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Married"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Join Professional Organization"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Invest in Development"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Network"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT DISTINCT "activities"."name" FROM "activities"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 AND "activities"."accomplished" = $2[0m  [["user_id", 6], ["accomplished", "t"]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Attend a conference"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Build an army worthy of Sauron"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Bake a cake"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Really Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Mega Slap Diego"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Run a 10k"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Married"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Join Professional Organization"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Invest in Development"], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.1ms)[0m  [1m[34mSELECT  "activities".* FROM "activities" WHERE "activities"."name" = $1 LIMIT $2[0m  [["name", "Network"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 AND "activities"."accomplished" = $2[0m  [["user_id", 6], ["accomplished", "t"]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mAchievement Load (1.0ms)[0m  [1m[34mSELECT "achievements".* FROM "achievements" INNER JOIN "activity_achievements" ON "achievements"."id" = "activity_achievements"."achievement_id" INNER JOIN "activities" ON "activity_achievements"."activity_id" = "activities"."id" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1[0m  [["user_id", 6]]
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" INNER JOIN "user_activities" ON "activities"."id" = "user_activities"."activity_id" WHERE "user_activities"."user_id" = $1 AND "activities"."accomplished" = $2[0m  [["user_id", 6], ["accomplished", "f"]]
+  Rendered users/show.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 376ms (Views: 228.0ms | ActiveRecord: 35.3ms)
+
+
+Started GET "/users/chartkick.js" for 127.0.0.1 at 2017-10-26 15:50:58 -0400
+Started GET "/users/js/materialize.min.js" for 127.0.0.1 at 2017-10-26 15:50:58 -0400
+Processing by UsersController#show as JS
+  
+  Parameters: {"id"=>"chartkick"}
+ActionController::RoutingError (No route matches [GET] "/users/js/materialize.min.js"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.4ms)
+
+
+  
+NoMethodError (undefined method `activities' for nil:NilClass):
+  
+app/controllers/users_controller.rb:70:in `grouped_activities'
+app/controllers/users_controller.rb:82:in `grouped_user_fitness'
+app/controllers/users_controller.rb:25:in `show'
+Started GET "/users/js/materialize.min.js" for 127.0.0.1 at 2017-10-26 15:50:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/js/materialize.min.js"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
