@@ -14,4 +14,13 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: true
 
+# after_initialize :set_achievements_list
+#
+# def set_achievements_list
+#   @achievements_list = []
+# end
+
+
+
+
 end

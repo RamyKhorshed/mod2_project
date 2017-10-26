@@ -2,8 +2,12 @@
 
 
 <h2>Completed Achievements</h2>
+<% @user_achievements.each do |achievement| %>
+  <h5><%= achievement.name %></h5>
+  <img src= "<%= achievement.img_reference %>" >
+<% end %>
 <% if @achievement_brain_and_brawn %>
-  <h3>Brain and Brawn </h3>
+  <h5>Brain and Brawn </h5>
   <img src="https://goo.gl/7tgofx" alt="Brain and Brawn" height="80" width="80">
 <% end %>
 </br>
@@ -46,23 +50,8 @@
   <%= submit_tag "Create an Activity" %>
 <% end %>
 
-
 <%end%>
 
-
-
-<h3>Completed Activities</h3>
-<% if @grouped_activities.length == 0 %>
-  <li> No activities completed :(</li>
-<% end %>
-<% @grouped_activities.each do |item, count| %>
-  <li><%= item %>
-    <% if count > 1 %>
-    , <%=count %>
-    <% end %>
-  </li>
-<% end %>
-</br>
 
 <div id="chart-2" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
 <script>
