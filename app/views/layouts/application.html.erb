@@ -3,6 +3,7 @@
   <head>
     <title>TrackerApp</title>
     <%= csrf_meta_tags %>
+    <script src='https://www.google.com/jsapi'></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -13,7 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="chartkick.js"></script>
 
   </head>
 

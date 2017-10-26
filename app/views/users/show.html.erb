@@ -87,6 +87,7 @@
 
 <% if @current_user == @user %>
 
+<<<<<<< HEAD
   <h3>Activities to do</h3>
   <% if @unaccomplished_activities.length == 0 %>
     <li> No activities to work on :( </li>
@@ -98,6 +99,16 @@
          <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
          <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
        </li>
+=======
+<h3>Completed Activities</h3>
+<% if @grouped_activities.length == 0 %>
+  <li> No activities completed :(</li>
+<% end %>
+<% @grouped_activities.each do |item, count| %>
+  <li><%= item %>
+    <% if count > 1 %>
+    , <%=count %>
+>>>>>>> a8ee81363bece5721022a249252ba0cc858058d5
     <% end %>
   </ul>
 
@@ -107,6 +118,7 @@
     Activity: <%= f.select :name, @activities_list.sort.collect {|activity| activity}, {}, {class: "browser-default"}%> <!--materialize reformatted how select dropdownsd work, this is a workaround-->
     <%= f.submit "Create Activity" %>
   <% end %>
+
 
   <h4>Or Make a New Activity</h4>
   <%= form_for @activities do |f|%>
@@ -118,6 +130,11 @@
     <%= submit_tag "Create an Activity" %>
   <% end %>
 
+<div id="chart-2" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
+<script>
+var column = <%=raw @scores_array%>;
+new Chartkick.PieChart(document.getElementById("chart-2"), [column[0],column[1],column[2],column[3],column[4]], {});
+</script>
 <% end %>
 
 </br></br>
