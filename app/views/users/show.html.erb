@@ -1,5 +1,8 @@
+<% if @current_user == @user %>
 <h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
-
+<% else %>
+<h2><%= @user.name %>'s Page</h2>
+<% end %>
 <h3>Completed Achievements</h3>
 <% if @public_achievements.length == 0 %>
   <li> Nothing achieved :( </li>
@@ -87,7 +90,7 @@
 
 <% if @current_user == @user %>
 
-<<<<<<< HEAD
+
   <h3>Activities to do</h3>
   <% if @unaccomplished_activities.length == 0 %>
     <li> No activities to work on :( </li>
@@ -99,16 +102,6 @@
          <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
          <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
        </li>
-=======
-<h3>Completed Activities</h3>
-<% if @grouped_activities.length == 0 %>
-  <li> No activities completed :(</li>
-<% end %>
-<% @grouped_activities.each do |item, count| %>
-  <li><%= item %>
-    <% if count > 1 %>
-    , <%=count %>
->>>>>>> a8ee81363bece5721022a249252ba0cc858058d5
     <% end %>
   </ul>
 
@@ -119,25 +112,29 @@
     <%= f.submit "Create Activity" %>
   <% end %>
 
-<<<<<<< HEAD
+
+
   <h4>Or Make a New Activity</h4>
   <%= form_for @activities do |f|%>
     <%= f.hidden_field :user_id, :value => @user.id%>
     <%= f.hidden_field :points, :value => 10 %>
     <%= f.hidden_field :accomplished, :value => false %>
-    Activity Name: <%= f.text_field :name, class: "my_input" %></br>
+    Activity Name: </br><%= f.text_field :name, class: "my_input" %></br>
     Activity Category: <%= f.select :category, @categories.collect {|category| category}, {}, {class: "browser-default"}%> <!--materialize reformatted how select dropdownsd work, this is a workaround-->
     <%= submit_tag "Create an Activity" %>
   <% end %>
-=======
+
+
 <div id="chart-2" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
 <script>
 var column = <%=raw @scores_array%>;
 new Chartkick.PieChart(document.getElementById("chart-2"), [column[0],column[1],column[2],column[3],column[4]], {});
 </script>
->>>>>>> a8ee81363bece5721022a249252ba0cc858058d5
+
 
 <% end %>
+
+
 
 </br></br>
 
