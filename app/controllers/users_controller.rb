@@ -34,6 +34,7 @@ class UsersController < ApplicationController
      @grouped_accomplished_activities = grouped_activities
      @activities = Activity.new
      @categories = ['Health & Fitness', 'Relationships & Well-Being', 'Intellectual', 'Purpose', 'Professional']
+     category_points
    end
 
   def edit
