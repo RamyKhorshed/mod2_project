@@ -18,39 +18,32 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: params[:user_id]) #to associate the new activity with the user making it
-    previous_activity = Activity.find_by(name: params[:activity]) #finds previoius activity with same name
-    @activity = previous_activity.dup #makes a copy of the previous activity
-    @activity.accomplished = false #sets accomplished to false on the new activity
-    @activity.save #saves the activity
-    @user.activities << @activity #associated the activity to the current user
-    redirect_to user_path(@user) #redirect to
+    if activity_params[:category]
+      create_new_activity
+    else
+      create_from_select
+    end
   end
 
   def delete
    @activity = Activity.find_by(id: params[:activity_id])
    @activity.destroy
    redirect_to user_path(session[:user_id])
- end
+  end
 
- def update
-   @activity = Activity.find_by(id: params[:activity_id])
-   @user = @activity.user_ids
-   @activity.accomplished = true
-   @activity.save
-   redirect_to user_path(@user)
- end
+  def update
+    @activity = Activity.find_by(id: params[:activity_id])
+    @user = @activity.user_ids
+    @activity.accomplished = true
+    @activity.save
+    redirect_to user_path(@user)
+  end
 
-  # def create
-  #   @activity = Activity.new
-  #   @user = User.find_by(id: params[:user_id])
-  #   byebug
-  #   hash = params[:activity][:name]
-  #   hash.each do |activity_id|
-  #     act = Activity.find_or_create_by(id: activity_id)
-  #     @user.activities << act
-  #   end
-  # end
+  private
+
+  def activity_params
+   params.require(:activity).permit(:name, :category, :points, :accomplished)
+  end
 
   def users_with_activity
     @activity = Activity.find_by(id: params[:id])
@@ -63,6 +56,23 @@ class ActivitiesController < ApplicationController
       end
     end
     activities
+  end
+
+  def create_new_activity
+    @user = User.find_by(id: params[:activity][:user_id]) #how do I put this in string params, and make it optional for the creation of an activity?
+    @activity = Activity.create(activity_params)
+    @user.activities << @activity
+    redirect_to user_path(@user)
+  end
+
+  def create_from_select #same question as in create_new_activity
+    @user = User.find_by(id: params[:activity][:user_id]) #to associate the new activity with the user making it
+    previous_activity = Activity.find_by(name: activity_params[:name]) #finds previoius activity with same name
+    @activity = previous_activity.dup #makes a copy of the previous activity
+    @activity.accomplished = false #sets accomplished to false on the new activity
+    @activity.save #saves the activity
+    @user.activities << @activity #associated the activity to the current user
+    redirect_to user_path(@user) #redirect to
   end
 
   def activity_fitness #hiking, biking, gym, etc
