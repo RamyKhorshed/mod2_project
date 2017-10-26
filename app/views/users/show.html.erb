@@ -153,7 +153,7 @@
 <h4>Enter your password to confirm you want to delete your account</h4>
 <%= form_for @user do |f| %>
   <%= f.label :password %>
-  <%= f.text_field :password, class: "my_input" %>
+  <%= f.text_field :password, class: "my_delete_input" %>
   <%= link_to 'Destroy', @user, method: :delete %>
 <% end %>
 </div>
