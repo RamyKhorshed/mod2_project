@@ -28,6 +28,7 @@ class UsersController < ApplicationController
      @grouped_activities = grouped_activities
      @activities = Activity.new
      @categories = ['Health & Fitness', 'Relationships & Well-Being', 'Intellectual', 'Purpose', 'Professional']
+     achievements
      category_points
    end
 
@@ -57,8 +58,13 @@ class UsersController < ApplicationController
   def user_params
    params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
   end
+
   def find_user
     @user = User.find_by(id: params[:id])
+  end
+
+  def accomplished_activities
+    @accomplished_activities = find_user.activities.where(accomplished: true)
   end
 
   def grouped_activities
@@ -87,6 +93,21 @@ class UsersController < ApplicationController
     @scores_array = scores.to_a
   end
 
+  def achievements
+    if check_for_achievement_by_name("Run a Marathon") && check_for_achievement_by_name("Read a book a week")
+      @achievement_brain_and_brawn = true
+    else
+      @achievement_brain_and_brawn = false
+    end
+    if check_for_achievement_by_name("Speak 3 Languages") && check_for_achievement_by_name("Network")
+      @achievement_globalized = true
+    else
+      @achievement_globalized = false
+    end
+  end
 
+  def check_for_achievement_by_name(name)
+    accomplished_activities.any? {|activity| activity.name == name}
+  end
 
 end
