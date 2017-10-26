@@ -10,49 +10,49 @@
 </br>
 
 <h3>Activities to do</h3>
+<% if @unaccomplished_activities.length == 0 %>
+  <li> No activities to work on :( </li>
+<% end %>
 <ul>
- <% @all_activities.each do |item| %>
-  <% if item.accomplished == false %>
+ <% @unaccomplished_activities.each do |item| %>
    <li>
        Name: <%= item.name %>
        <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
        <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
      </li>
   <% end %>
- <% end %>
 </ul>
 
 <% if @current_user == @user %>
 
-<h3>Add New Activity </h3>
+  <h3>Add New Activity </h3>
 
-<%= form_for @activities do |f| %>
-  <%= f.hidden_field :user_id, :value => @user.id%>
-  <%= f.select :name, @activities_list.collect {|activity| activity} %>
-  <%= f.submit "Create Activity" %>
+  <%= form_for @activities do |f| %>
+    <%= f.hidden_field :user_id, :value => @user.id%>
+    <%= f.select :name, @activities_list.sort.collect {|activity| activity} %>
+    <%= f.submit "Create Activity" %>
+  <% end %>
+
+  <h3>Or Make a New Activity</h3>
+  <%= form_for @activities do |f|%>
+    <%= f.hidden_field :user_id, :value => @user.id%>
+    <%= f.hidden_field :points, :value => 10 %>
+    <%= f.hidden_field :accomplished, :value => false %>
+    <%= f.text_field :name %>
+    <%= f.select :category, @categories.collect {|category| category}%>
+    <%= submit_tag "Create an Activity" %>
+  <% end %>
+
 <% end %>
-
-<h3>Or Make a New Activity</h3>
-<%= form_for @activities do |f|%>
-  <%= f.hidden_field :user_id, :value => @user.id%>
-  <%= f.hidden_field :points, :value => 10 %>
-  <%= f.hidden_field :accomplished, :value => false %>
-  <%= f.text_field :name %>
-  <%= f.select :category, @categories.collect {|category| category}%>
-  <%= submit_tag "Create an Activity" %>
-<% end %>
-
-
-<%end%>
 
 
 
 <h3>Completed Activities</h3>
-<% if @grouped_activities.length == 0 %>
+<% if @grouped_accomplished_activities.length == 0 %>
   <li> No activities completed :(</li>
 <% end %>
-<% @grouped_activities.each do |item, count| %>
-  <li><%= item %>
+<% @grouped_accomplished_activities.each do |item, count| %>
+  <li><%= link_to item.name, activity_path(item) %>
     <% if count > 1 %>
     , <%= count %>
     <% end %>
