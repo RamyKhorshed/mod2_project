@@ -102,7 +102,10 @@
          <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
          <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
        </li>
+     <% end %>
+   </ul>
 
+<<<<<<< HEAD
 
 <h3>Completed Activities</h3>
 <% if @grouped_activities.length == 0 %>
@@ -114,6 +117,8 @@
     , <%=count %>
     <% end %>
   </ul>
+=======
+>>>>>>> style_login1
 
   <h4>Add New Activity </h4>
   <%= form_for @activities do |f| %>
@@ -134,11 +139,6 @@
   <% end %>
 
 
-<div id="chart-2" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
-<script>
-var column = <%=raw @scores_array%>;
-new Chartkick.PieChart(document.getElementById("chart-2"), [column[0],column[1],column[2],column[3],column[4]], {});
-</script>
 
 
 <div id="chart-2" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
@@ -160,6 +160,6 @@ new Chartkick.PieChart(document.getElementById("chart-2"), [column[0],column[1],
   <%= f.label :password %>
   <%= f.text_field :password, class: "my_input" %>
   <%= link_to 'Destroy', @user, method: :delete %>
-<% end %>
+  <% end %>
 </div>
-<%end%>
+<% end %>

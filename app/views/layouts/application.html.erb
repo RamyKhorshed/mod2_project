@@ -28,20 +28,20 @@
   </head>
 
   <body>
+    <% if session[:user_id] %>
     <nav class="blue">
       <div class="nav-wrapper">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <% if session[:user_id] %>
             <div>
               <li><%= link_to "My Page", user_path(session[:user_id]) %> </li>
               <li><%= link_to "All Achievements", achievements_path %> </li>
               <li><%= link_to "All Activities", activities_path %> </li>
               <li><%= link_to("Log Out", delete_sessions_path, method: :delete) %></li>
             </div>
-          <% end %>
         </ul>
       </div>
     </nav>
+    <% end %>
 
     <%= yield %>
 
