@@ -28,6 +28,7 @@ class UsersController < ApplicationController
      @grouped_activities = grouped_activities
      @activities = Activity.new
      @categories = ['Health & Fitness', 'Relationships & Well-Being', 'Intellectual', 'Purpose', 'Professional']
+     category_points
    end
 
   def edit
@@ -44,12 +45,13 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   def destroy
     find_user.destroy
     session[:user_id] = nil
     redirect_to '/login'
   end
-
 
   private
   def user_params
@@ -69,5 +71,22 @@ class UsersController < ApplicationController
     end
     hash
   end
+
+  def category_points
+    grouped = find_user.activities.where(accomplished: true).group_by(&:category) #finds all activities for user(find_user.activities), selects only the acomplished ones (.where(accomplished: true)), and groups those with identical activities by :name
+    scores = {}
+    @categories.each do |category|
+      category_sum = 0
+      if !!grouped[category]
+        grouped[category].each do |activity|
+          category_sum += activity.points
+        end
+      end
+      scores[category] = category_sum
+    end
+    @scores_array = scores.to_a
+  end
+
+
 
 end

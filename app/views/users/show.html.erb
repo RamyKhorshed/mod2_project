@@ -54,12 +54,17 @@
 <% @grouped_activities.each do |item, count| %>
   <li><%= item %>
     <% if count > 1 %>
-    , <%= count %>
+    , <%=count %>
     <% end %>
   </li>
 <% end %>
 </br>
 
+<div id="chart-2" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
+<script>
+var column = <%=raw @scores_array%>;
+new Chartkick.PieChart(document.getElementById("chart-2"), [column[0],column[1],column[2],column[3],column[4]], {});
+</script>
 
 
 </br></br>
