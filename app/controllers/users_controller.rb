@@ -112,6 +112,4 @@ class UsersController < ApplicationController
     @scores_array = scores.to_a
   end
 
-
-
 end
