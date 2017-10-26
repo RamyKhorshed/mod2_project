@@ -105,20 +105,6 @@
      <% end %>
    </ul>
 
-<<<<<<< HEAD
-
-<h3>Completed Activities</h3>
-<% if @grouped_activities.length == 0 %>
-  <li> No activities completed :(</li>
-<% end %>
-<% @grouped_activities.each do |item, count| %>
-  <li><%= item %>
-    <% if count > 1 %>
-    , <%=count %>
-    <% end %>
-  </ul>
-=======
->>>>>>> style_login1
 
   <h4>Add New Activity </h4>
   <%= form_for @activities do |f| %>
