@@ -1,7 +1,7 @@
 input[type=text]:not(.browser-default).my_input{
-  width: 20% ;
+  width: 60% ;
 }
 
 .browser-default{
-  width: 20% ;
+  width: 60% ;
 }
