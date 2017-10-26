@@ -14,30 +14,34 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="chartkick.js"></script>
+
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="chartkick.js"></script>
 
-
   </head>
 
   <body>
+    <% if session[:user_id] %>
     <nav class="blue">
       <div class="nav-wrapper">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <% if session[:user_id] %>
             <div>
               <li><%= link_to "My Page", user_path(session[:user_id]) %> </li>
               <li><%= link_to "All Achievements", achievements_path %> </li>
               <li><%= link_to "All Activities", activities_path %> </li>
               <li><%= link_to("Log Out", delete_sessions_path, method: :delete) %></li>
             </div>
-          <% end %>
         </ul>
       </div>
     </nav>
+    <% end %>
 
     <%= yield %>
 
