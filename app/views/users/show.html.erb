@@ -16,7 +16,7 @@
 
 <div class="row">
   <div class="col s2">
-  <h3>Fitness</h3>
+  <h4>Fitness</h4>
     <% if @grouped_user_fitness.length == 0 %>
       <li> No Fitness and Health activities :(</li>
     <% end %>
@@ -30,7 +30,7 @@
   </div>
 
   <div class="col s2">
-  <h3>Relationship</h3>
+  <h4>Relationship</h4>
     <% if @grouped_user_relationship.length == 0 %>
       <li> No Relationship and Well-Being activities :(</li>
     <% end %>
@@ -44,7 +44,7 @@
   </div>
 
   <div class="col s2">
-  <h3>Intellectual</h3>
+  <h4>Intellectual</h4>
     <% if @grouped_user_intellectual.length == 0 %>
       <li> No Intellectual activities :(</li>
     <% end %>
@@ -58,7 +58,7 @@
   </div>
 
   <div class="col s2">
-  <h3>Purpose</h3>
+  <h4>Purpose</h4>
     <% if @grouped_user_purpose.length == 0 %>
       <li> No Purpose activities :(</li>
     <% end %>
@@ -72,7 +72,7 @@
   </div>
 
   <div class="col s2">
-  <h3>Professional</h3>
+  <h4>Professional</h4>
     <% if @grouped_user_professional.length == 0 %>
       <li> No Professional activities :(</li>
     <% end %>
@@ -87,9 +87,24 @@
 
 </div>
 
+<div class="row">
 
+  <div class="col s6">
+  <h3>Completed Activities Pie Chart</h3>
+  <% if @current_user == @user %>
+  <h5>Are you well-rounded? (hint: It's interactive)</h5>
+  <% else %>
+  <h5>Is <%= @user.name %> well-rounded? (hint: It's interactive)</h5>
+  <% end %>
+    <div id="chart-2" style="height: 300px; text-align: right; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
+    <script>
+    var column = <%=raw @scores_array%>;
+    new Chartkick.PieChart(document.getElementById("chart-2"), [column[0],column[1],column[2],column[3],column[4]], {});
+    </script>
+  </div>
+
+<div class="col s6">
 <% if @current_user == @user %>
-
 
   <h3>Activities to do</h3>
   <% if @unaccomplished_activities.length == 0 %>
@@ -102,38 +117,33 @@
          <%= button_to("Accomplish!", activity_update_path(item), method: :put) %>
          <%= button_to("Delete!", activity_delete_path(item), method: :put) %>
        </li>
-     <% end %>
-   </ul>
-
-
-  <h4>Add New Activity </h4>
+    <% end %>
+  </ul>
+<div class="row">
+  <div class="col s6">
+  <h5>Add New Activity </h5>
   <%= form_for @activities do |f| %>
     <%= f.hidden_field :user_id, :value => @user.id%>
     Activity: <%= f.select :name, @activities_list.sort.collect {|activity| activity}, {}, {class: "browser-default"}%> <!--materialize reformatted how select dropdownsd work, this is a workaround-->
-    <%= f.submit "Create Activity" %>
+    <%= f.submit "Add Activity" %>
   <% end %>
-
-
-  <h4>Or Make a New Activity</h4>
+</div>
+<div class="col s6">
+  <h5>Make a New Activity</h5>
   <%= form_for @activities do |f|%>
     <%= f.hidden_field :user_id, :value => @user.id%>
     <%= f.hidden_field :points, :value => 10 %>
     <%= f.hidden_field :accomplished, :value => false %>
     Activity Name: </br><%= f.text_field :name, class: "my_input" %></br>
     Activity Category: <%= f.select :category, @categories.collect {|category| category}, {}, {class: "browser-default"}%> <!--materialize reformatted how select dropdownsd work, this is a workaround-->
-    <%= submit_tag "Create an Activity" %>
+    <%= submit_tag "Create and Add Activity" %>
   <% end %>
+</div>
+</div>
 
-
-
-
-<div id="chart-2" style="height: 300px; text-align: center; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
-<script>
-var column = <%=raw @scores_array%>;
-new Chartkick.PieChart(document.getElementById("chart-2"), [column[0],column[1],column[2],column[3],column[4]], {});
-</script>
 <% end %>
-
+</div>
+</div>
 
 
 </br></br>
@@ -144,7 +154,7 @@ new Chartkick.PieChart(document.getElementById("chart-2"), [column[0],column[1],
 <h4>Enter your password to confirm you want to delete your account</h4>
 <%= form_for @user do |f| %>
   <%= f.label :password %>
-  <%= f.text_field :password, class: "my_input" %>
+  <%= f.text_field :password, class: "my_delete_input" %>
   <%= link_to 'Destroy', @user, method: :delete %>
   <% end %>
 </div>
