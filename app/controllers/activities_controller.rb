@@ -46,7 +46,7 @@ class ActivitiesController < ApplicationController
   end
 
   def users_with_activity
-    @activity = Activity.find_by(id: params[:id]) 
+    @activity = Activity.find_by(id: params[:id])
     activities = []
     User.all.collect do |user|
       user.activities.collect do |activity|
@@ -76,23 +76,23 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_fitness #hiking, biking, gym, etc
-    Activity.all.where(category: 'Health & Fitness').uniq {|p| p.name} #removes duplicate activities
+    Activity.all.where(category: 'Health & Fitness').uniq {|p| p.name}.sort_by {|item| item.name} #removes duplicate activities, sorts alphabetically by name
   end
 
   def activity_relationship #improv classes, lunch date, widening your interpersonal skills
-    Activity.all.where(category: 'Relationships & Well-Being').uniq {|p| p.name}
+    Activity.all.where(category: 'Relationships & Well-Being').uniq {|p| p.name}.sort_by {|item| item.name}
   end
 
   def activity_intellectual #night classes, books read, new topic discovered, talk went to
-    Activity.all.where(category: 'Intellectual').uniq {|p| p.name}
+    Activity.all.where(category: 'Intellectual').uniq {|p| p.name}.sort_by {|item| item.name}
   end
 
   def activity_purpose #stuff around the house. vaccuming, repairs, housework, mowing the lawn, hanging pictures
-    Activity.all.where(category: 'Purpose').uniq {|p| p.name}
+    Activity.all.where(category: 'Purpose').uniq {|p| p.name}.sort_by {|item| item.name}
   end
 
   def activity_professional #Work life, tasks, projects
-    Activity.all.where(category: 'Professional').uniq {|p| p.name}
+    Activity.all.where(category: 'Professional').uniq {|p| p.name}.sort_by {|item| item.name}
   end
 
 

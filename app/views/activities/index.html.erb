@@ -1,52 +1,55 @@
 <h1>All Activities</h1>
 <!-- <h2>Inspirational Ideas</h2> -->
 
-<h3>Fitness</h3>
-<div>
-  <% @fitness.each do |fitness| %>
+<div class="row">
+  <div class="col s2">
+  <h3>Fitness</h3>
     <% if @fitness.length == 0 %>
-      <li> No Health and Fitness activities :(</li>
+      <li> No Fitness and Health activities :(</li>
     <% end %>
-    <li><%= link_to fitness.name, activity_path(fitness) %></li>
-  <% end %>
-</div> </br>
+    <% @fitness.each do |fitness| %>
+      <li><%= link_to fitness.name, activity_path(fitness) %></li>
+    <% end %>
+  </div>
 
-<h3>Relationship</h3>
-<div>
-  <% if @relationship.length == 0 %>
-  <li> No Relationship and Well-Being activities :(</li>
-  <% end %>
-  <% @relationship.each do |relationship| %>
-    <li><%= link_to relationship.name, activity_path(relationship) %></li>
-  <% end %>
-</div> </br>
+  <div class="col s2">
+  <h3>Relationship</h3>
+    <% if @relationship.length == 0 %>
+      <li> No Relationship and Well-Being activities :(</li>
+    <% end %>
+    <% @relationship.each do |relationship| %>
+      <li><%= link_to relationship.name, activity_path(relationship) %></li>
+    <% end %>
+  </div>
 
-<h3>Intellectual</h3>
-<div>
-  <% if @intellectual.length == 0 %>
-  <li> No Intellectual activities :(</li>
-  <% end %>
-  <% @intellectual.each do |intellectual| %>
-    <li><%= link_to intellectual.name, activity_path(intellectual) %></li>
-  <% end %>
-</div> </br>
+  <div class="col s2">
+  <h3>Intellectual</h3>
+    <% if @intellectual.length == 0 %>
+      <li> No Intellectual activities :(</li>
+    <% end %>
+    <% @intellectual.each do |intellectual| %>
+      <li><%= link_to intellectual.name, activity_path(intellectual) %></li>
+    <% end %>
+  </div>
 
-<h3>Purpose</h3>
-<div>
-  <% if @purpose.length == 0 %>
-  <li> No Purpose activities :(</li>
-  <% end %>
-  <% @purpose.each do |purpose| %>
-    <li><%= link_to purpose.name, activity_path(purpose) %></li>
-  <% end %>
-</div> </br>
+  <div class="col s2">
+  <h3>Purpose</h3>
+    <% if @purpose.length == 0 %>
+      <li> No Purpose activities :(</li>
+    <% end %>
+    <% @purpose.each do |purpose| %>
+      <li><%= link_to purpose.name, activity_path(purpose) %></li>
+    <% end %>
+  </div>
 
-<h3>Professional</h3>
-<div>
-  <% if @professional.length == 0 %>
-  <li> No Professional activities :(</li>
-  <% end %>
-  <% @professional.each do |professional| %>
-    <li><%= link_to professional.name, activity_path(professional) %></li>
-  <% end %>
+  <div class="col s2">
+  <h3>Professional</h3>
+    <% if @professional.length == 0 %>
+      <li> No Professional activities :(</li>
+    <% end %>
+    <% @professional.each do |professional| %>
+      <li><%= link_to professional.name, activity_path(professional) %></li>
+    <% end %>
+  </div>
+
 </div>

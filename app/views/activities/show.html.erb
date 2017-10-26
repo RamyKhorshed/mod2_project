@@ -1,5 +1,5 @@
-<h2>Other people who like <%= @activity.name %></h2>
+<h2>People who completed <%= @activity.name %></h2>
 
-<% @users.each do |user| %>
+<% @users.sort.each do |user| %>
   <li><%= link_to user.name, user_path(user) %></li>
 <% end %>
