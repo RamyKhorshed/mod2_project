@@ -8,3 +8,6 @@ input[type=text]:not(.browser-default).my_delete_input{
 .browser-default{
   width: 60% ;
 }
+.achievements{
+  background-color: white ;
+}

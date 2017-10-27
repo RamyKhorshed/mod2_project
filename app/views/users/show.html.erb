@@ -1,7 +1,7 @@
 <% if @current_user == @user %>
-<h2> Hello <%= @user.name %>, welcome to your tracker page! </h2>
+<h2> Hello <%= @user.name.capitalize %>, welcome to your tracker page! </h2>
 <% else %>
-<h2><%= @user.name %>'s Page</h2>
+<h2><%= @user.name.capitalize %>'s Page</h2>
 <% end %>
 </br>
 <h3>Completed Achievements</h3>
@@ -9,60 +9,37 @@
   <li> Nothing achieved :( </li>
 <% end %>
 
-<div class="row">
+<div class="achievements row">
+  <% @grouped_achievements.each do |category_name, achievement_group| %>
+    <div class="col s2">
+      <h4><%= category_name %></h4>
+      <% achievement_group.each do |achievement|%>
+        <h6><%= achievement.name %></h6>
+        <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="50" width="50">
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="col s2">
-    <h4>Fitness</h4>
-<% @grouped_fitness_achievements.each do |achievement| %>
-  <h5><%= achievement.name %></h5>
-  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
-<% end %>
-</div>
-  <div class="col s2">
-    <h4>Relationship</h4>
-<% @grouped_relationship_achievements.each do |achievement| %>
-  <h5><%= achievement.name %></h5>
-  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
-<% end %>
-</div>
-  <div class="col s2">
-    <h4>Intellectual</h4>
-<% @grouped_intellectual_achievements.each do |achievement| %>
-  <h5><%= achievement.name %></h5>
-  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
-<% end %>
-</div>
-  <div class="col s2">
-    <h4>Purpose</h4>
-<% @grouped_purpose_achievements.each do |achievement| %>
-  <h5><%= achievement.name %></h5>
-  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
-<% end %>
-</div>
-  <div class="col s2">
-    <h4>Professional</h4>
-<% @grouped_professional_achievements.each do |achievement| %>
-  <h5><%= achievement.name %></h5>
-  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
-<% end %>
-</div>
-<div class="col s2">
-  <h4>Miscellaneous</h4>
-<% if @achievement_brain_and_brawn %>
-  <h5>Brain and Brawn </h5>
-  <img src="https://goo.gl/7tgofx" alt="Brain and Brawn" height="80" width="80">
-<% end %>
-</br>
-<% if @achievement_globalized %>
-  <h3>Globalized </h3>
-  <img src="https://goo.gl/rXAAPz" alt="Globalized" height="80" width="80">
-<% end %>
+    <h4>Miscellaneous</h4>
+    <% if @achievement_brain_and_brawn %>
+    <h6>Brain and Brawn </h6>
+    <img src="https://goo.gl/7tgofx" alt="Brain and Brawn" height="50" width="50">
+    <% end %>
+  </br>
+  <% if @achievement_globalized %>
+  <h6>Globalized </h6>
+  <img src="https://goo.gl/rXAAPz" alt="Globalized" height="50" width="50">
+  <% end %>
 </div>
 </div>
+
+
 
 
 <h3>Completed Activities</h3> <!--yes, repetitive, probably could abstract it out, but it works-->
 
-<div class="row">
+<div class="achievements row">
   <div class="col s2">
   <h4>Fitness</h4>
     <% if @grouped_user_fitness.length == 0 %>
@@ -142,7 +119,7 @@
   <% if @current_user == @user %>
   <h5>Are you well-rounded? (hint: It's interactive)</h5>
   <% else %>
-  <h5>Is <%= @user.name %> well-rounded? (hint: It's interactive)</h5>
+  <h5>Is <%= @user.name.capitalize %> well-rounded? (hint: It's interactive)</h5>
   <% end %>
     <div id="chart-2" style="height: 300px; text-align: right; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
     <script>

@@ -21,18 +21,14 @@ class UsersController < ApplicationController
 
 
    def show
-     find_user
+     find_user #finds the current user for use in view
      @grouped_user_fitness = grouped_user_fitness
      @grouped_user_relationship = grouped_user_relationship
      @grouped_user_intellectual = grouped_user_intellectual
      @grouped_user_purpose = grouped_user_purpose
      @grouped_user_professional = grouped_user_professional
+     @grouped_achievements = {"Fitness" => grouped_fitness_achievements, "Relationship" => grouped_relationship_achievements, "Intellectual" => grouped_intellectual_achievements, "Purpose" => grouped_purpose_achievements, "Professional" => grouped_professional_achievements}
 
-     @grouped_fitness_achievements = grouped_fitness_achievements
-     @grouped_relationship_achievements = grouped_relationship_achievements
-     @grouped_intellectual_achievements = grouped_intellectual_achievements
-     @grouped_purpose_achievements = grouped_purpose_achievements
-     @grouped_professional_achievements = grouped_professional_achievements
 
      @activities_list = Activity.distinct.pluck(:name)
      @public_achievements = find_user.achievements
@@ -40,7 +36,7 @@ class UsersController < ApplicationController
      @grouped_accomplished_activities = grouped_activities
      @activities = Activity.new
      @categories = ['Health & Fitness', 'Relationships & Well-Being', 'Intellectual', 'Purpose', 'Professional']
-     achievements
+     all_achievements
      category_points
    end
 
@@ -89,7 +85,7 @@ class UsersController < ApplicationController
     hash
   end
 
-
+#get all activities for each category
   def grouped_user_fitness
     grouped_activities.select {|activity| activity.category == "Health & Fitness"}
   end
@@ -106,8 +102,8 @@ class UsersController < ApplicationController
     grouped_activities.select {|activity| activity.category == "Professional"}
   end
 
+  #get all achievments by category. called in @grouped_achievements in show method.
   def grouped_fitness_achievements
-    # binding.pry
     find_user.achievements.where(category: "Health & Fitness")
   end
   def grouped_relationship_achievements
@@ -140,7 +136,61 @@ class UsersController < ApplicationController
     @scores_array = scores.to_a
   end
 
-  def achievements
+  def all_achievements #calls all grouping achievements methods. fitness_achievements, relationship_achievements...
+    fitness_achievements
+    relationship_achievements
+    intellectual_achievements
+    purpose_achievements
+    professional_achievements
+    miscellaneous_achievements
+  end
+
+  def fitness_achievements #adds all fitness achievements
+    i = 5
+    while i < 30 do
+      if fitness_count >= i && !@user.achievements.find_by(name: "#{i} Fitness")
+        @user.achievements << Achievement.find_by(name: "#{i} Fitness")
+      end
+      i += 5
+    end
+  end
+  def relationship_achievements #adds all relationship achievements
+    i = 5
+    while i < 30 do
+      if relationship_count >= i && !@user.achievements.find_by(name: "#{i} Relationship")
+        @user.achievements << Achievement.find_by(name: "#{i} Relationship")
+      end
+      i += 5
+    end
+  end
+  def intellectual_achievements #adds all intellectual achievements
+    i = 5
+    while i < 30 do
+      if intellectual_count >= i && !@user.achievements.find_by(name: "#{i} Intellectual")
+        @user.achievements << Achievement.find_by(name: "#{i} Intellectual")
+      end
+      i += 5
+    end
+  end
+  def purpose_achievements #adds all purpose achievements
+    i = 5
+    while i < 30 do
+      if purpose_count >= i && !@user.achievements.find_by(name: "#{i} Purpose")
+        @user.achievements << Achievement.find_by(name: "#{i} Purpose")
+      end
+      i += 5
+    end
+  end
+  def professional_achievements #adds all professional achievements
+    i = 5
+    while i < 30 do
+      if professional_count >= i && !@user.achievements.find_by(name: "#{i} Professional")
+        @user.achievements << Achievement.find_by(name: "#{i} Professional")
+      end
+      i += 5
+    end
+  end
+  def miscellaneous_achievements #all miscellaneous achievements. Basically little easter eggs
     if check_for_achievement_by_name("Run a Marathon") && check_for_achievement_by_name("Read a book a week")
       @achievement_brain_and_brawn = true
     else
@@ -151,88 +201,9 @@ class UsersController < ApplicationController
     else
       @achievement_globalized = false
     end
-    if fitness_count >= 5 && !@user.achievements.find_by(name: "5 Fitness")
-      @user.achievements << Achievement.find_by(name: "5 Fitness")
-    end
-    if fitness_count >= 10 && !@user.achievements.find_by(name: "10 Fitness")
-      @user.achievements << Achievement.find_by(name: "10 Fitness")
-    end
-    if fitness_count >= 15 && !@user.achievements.find_by(name: "15 Fitness")
-      @user.achievements << Achievement.find_by(name: "15 Fitness")
-    end
-    if fitness_count >= 20 && !@user.achievements.find_by(name: "20 Fitness")
-      @user.achievements << Achievement.find_by(name: "20 Fitness")
-    end
-    if fitness_count >= 25 && !@user.achievements.find_by(name: "25 Fitness")
-      @user.achievements << Achievement.find_by(name: "25 Fitness")
-    end
-
-    if relationship_count >= 5 && !@user.achievements.find_by(name: "5 Relationship")
-      @user.achievements << Achievement.find_by(name: "5 Relationship")
-    end
-    if relationship_count >= 10 && !@user.achievements.find_by(name: "10 Relationship")
-      @user.achievements << Achievement.find_by(name: "10 Relationship")
-    end
-    if relationship_count >= 15 && !@user.achievements.find_by(name: "15 Relationship")
-      @user.achievements << Achievement.find_by(name: "15 Relationship")
-    end
-    if relationship_count >= 20 && !@user.achievements.find_by(name: "20 Relationship")
-      @user.achievements << Achievement.find_by(name: "20 Relationship")
-    end
-    if relationship_count >= 25 && !@user.achievements.find_by(name: "25 Relationship")
-      @user.achievements << Achievement.find_by(name: "25 Relationship")
-    end
-
-    if intellectual_count >= 5 && !@user.achievements.find_by(name: "5 Intellectual")
-      @user.achievements << Achievement.find_by(name: "5 Intellectual")
-    end
-    if intellectual_count >= 10 && !@user.achievements.find_by(name: "10 Intellectual")
-      @user.achievements << Achievement.find_by(name: "10 Intellectual")
-    end
-    if intellectual_count >= 15 && !@user.achievements.find_by(name: "15 Intellectual")
-      @user.achievements << Achievement.find_by(name: "15 Intellectual")
-    end
-    if intellectual_count >= 20 && !@user.achievements.find_by(name: "20 Intellectual")
-      @user.achievements << Achievement.find_by(name: "20 Intellectual")
-    end
-    if intellectual_count >= 25 && !@user.achievements.find_by(name: "25 Intellectual")
-      @user.achievements << Achievement.find_by(name: "25 Intellectual")
-    end
-
-    if purpose_count >= 5 && !@user.achievements.find_by(name: "5 Purpose")
-      @user.achievements << Achievement.find_by(name: "5 Purpose")
-    end
-    if purpose_count >= 10 && !@user.achievements.find_by(name: "10 Purpose")
-      @user.achievements << Achievement.find_by(name: "10 Purpose")
-    end
-    if purpose_count >= 15 && !@user.achievements.find_by(name: "15 Purpose")
-      @user.achievements << Achievement.find_by(name: "15 Purpose")
-    end
-    if purpose_count >= 20 && !@user.achievements.find_by(name: "20 Purpose")
-      @user.achievements << Achievement.find_by(name: "20 Purpose")
-    end
-    if purpose_count >= 25 && !@user.achievements.find_by(name: "25 Purpose")
-      @user.achievements << Achievement.find_by(name: "25 Purpose")
-    end
-
-    if professional_count >= 5 && !@user.achievements.find_by(name: "5 Professional")
-      @user.achievements << Achievement.find_by(name: "5 Professional")
-    end
-    if professional_count >= 10 && !@user.achievements.find_by(name: "10 Professional")
-      @user.achievements << Achievement.find_by(name: "10 Professional")
-    end
-    if professional_count >= 15 && !@user.achievements.find_by(name: "15 Professional")
-      @user.achievements << Achievement.find_by(name: "15 Professional")
-    end
-    if professional_count >= 20 && !@user.achievements.find_by(name: "20 Professional")
-      @user.achievements << Achievement.find_by(name: "20 Professional")
-    end
-    if professional_count >= 25 && !@user.achievements.find_by(name: "25 Professional")
-      @user.achievements << Achievement.find_by(name: "25 Professional")
-    end
   end
 
-
+ #gets counts of activities by category
   def fitness_count
     find_user.activities.where(category: "Health & Fitness").where(accomplished: true).count
   end
@@ -249,7 +220,7 @@ class UsersController < ApplicationController
     find_user.activities.where(category: "Professional").where(accomplished: true).count
   end
 
-
+ #abstracts out achievement finding
   def find_achievement(name)
     Achievement.find_by(name: name)
   end
