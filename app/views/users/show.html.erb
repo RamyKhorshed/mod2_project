@@ -3,14 +3,29 @@
 <% else %>
 <h2><%= @user.name %>'s Page</h2>
 <% end %>
+
 <h3>Completed Achievements</h3>
 <% if @public_achievements.length == 0 %>
   <li> Nothing achieved :( </li>
 <% end %>
-<% @public_achievements.each do |item| %>
-  <li><%= item.name %>, <%= item.description %></li>
+<% @user.achievements.each do |achieved|%>
+  <h5><%= achieved.name %></h5>
+  <img src="<%= achieved.img_reference %>" alt="<%achieved.description%>" height="80" width="80">
+<% end %>
+<!-- <% if @fitness5 %>
+  <h5>5 Fitness!</h5>
+  <img src="https://goo.gl/wUKd2D" alt="Skinny"height="80" width="80">
+<% end %> -->
+<% if @achievement_brain_and_brawn %>
+  <h5>Brain and Brawn </h5>
+  <img src="https://goo.gl/7tgofx" alt="Brain and Brawn" height="80" width="80">
 <% end %>
 </br>
+<% if @achievement_globalized %>
+  <h3>Globalized </h3>
+  <img src="https://goo.gl/rXAAPz" alt="Globalized" height="80" width="80">
+<% end %>
+
 
 <h3>Completed Activities</h3> <!--yes, repetitive, probably could abstract it out, but it works-->
 
