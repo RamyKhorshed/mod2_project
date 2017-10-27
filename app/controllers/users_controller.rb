@@ -59,6 +59,9 @@ class UsersController < ApplicationController
 
 
   private
+  def delete_params
+    params.require(:user).permit(:password)
+  end
   def user_params
    params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
   end

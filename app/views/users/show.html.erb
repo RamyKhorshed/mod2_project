@@ -12,10 +12,10 @@
     <div class="col s2">
       <h5><%= category_name %></h5>
       <% if achievement_group.length == 0 %>
-        <li> No <%= category_name %> achievements :(</li>
+        <li> No <%= category_name %> achievements </li>
       <% end %>
       <% achievement_group.each do |achievement|%>
-        <h6><%= link_to achievement.name, achievement_path %></h6>
+        <h6><%= link_to achievement.name, achievement_path(achievement) %></h6>
         <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="50" width="50">
       <% end %>
     </div>
@@ -47,10 +47,10 @@
   <div class="col s2">
     <h5><%= category_name %></h5>
     <% if activity_group.length == 0 %>
-      <li> No <%= category_name %> activities :(</li>
+      <li> No <%= category_name %> activities </li>
     <% end %>
     <% activity_group.each do |activity, count| %>
-      <li><%= link_to activity.name, activity_path %>
+      <li><%= link_to activity.name, activity_path(activity) %>
     <% if count > 1 %>
     , <%= count %>
     <% end %>
@@ -139,12 +139,12 @@
 
 <% if @current_user == @user %>
 <div>
-<h5>Delete yourself</h5>
-<h6>Enter your password to confirm you want to delete your account</h6>
+<h5>Delete your account</h5>
+<!-- <h6>Enter your password to confirm you want to delete your account</h6> -->
 <%= form_for @user do |f| %>
-  <%= f.label :password %>
-  <%= f.text_field :password, class: "my_delete_input" %>
-  <%= link_to 'Destroy', @user, method: :delete %>
+  <!-- <%= f.label :password %>
+  <%= f.text_field :password, class: "my_delete_input" %> -->
+  <%= link_to 'Delete Account', @user, method: :delete %>
   <% end %>
 </div>
 <% end %>

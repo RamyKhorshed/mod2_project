@@ -79,3 +79,18 @@ end
 achievement_list.each do |name, description, img_reference, category|
   Achievement.create( name: name, description:description, img_reference:img_reference, category:category)
 end
+
+  users_list = [
+    ["Timmy", "Timmy", "timmy@gmail.com", "password"],
+    ["Todd", "Todd", "todd@gmail.com", "password"],
+    ["Laura", "Laura", "laura@gmail.com", "password"],
+    ["Max", "Max", "max@gmail.com", "password"],
+    ["Kevin", "Kevin", "kevin@gmail.com", "password"],
+    ["Dale", "Dale", "dale@gmail.com", "password"],
+    ["Henry", "Henry", "henry@gmail.com", "password"],
+    ["Bruce" "Bruce", "bruce@gmail.com", "password"]
+  ]
+
+  users_list.each do |name, username, email, password|
+    User.create( name: name, username:username, email:email, password:password)
+  end
