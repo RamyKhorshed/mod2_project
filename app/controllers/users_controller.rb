@@ -22,12 +22,9 @@ class UsersController < ApplicationController
 
    def show
      find_user #finds the current user for use in view
-     @grouped_user_fitness = grouped_user_fitness
-     @grouped_user_relationship = grouped_user_relationship
-     @grouped_user_intellectual = grouped_user_intellectual
-     @grouped_user_purpose = grouped_user_purpose
-     @grouped_user_professional = grouped_user_professional
-     @grouped_achievements = {"Fitness" => grouped_fitness_achievements, "Relationship" => grouped_relationship_achievements, "Intellectual" => grouped_intellectual_achievements, "Purpose" => grouped_purpose_achievements, "Professional" => grouped_professional_achievements}
+
+     @grouped_user_activities = {"Fitness" => grouped_user_fitness, "Relationship" => grouped_user_relationship, "Intellectual" => grouped_user_intellectual, "Purpose" => grouped_user_purpose, "Professional" => grouped_user_professional}
+     @grouped_user_achievements = {"Fitness" => grouped_fitness_achievements, "Relationship" => grouped_relationship_achievements, "Intellectual" => grouped_intellectual_achievements, "Purpose" => grouped_purpose_achievements, "Professional" => grouped_professional_achievements}
 
 
      @activities_list = Activity.distinct.pluck(:name)

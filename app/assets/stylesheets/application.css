@@ -11,3 +11,9 @@ input[type=text]:not(.browser-default).my_delete_input{
 .achievements{
   background-color: white ;
 }
+
+.sign_up{
+  padding-top: 2% ;
+  padding-left: 5% ;
+  width: 60% ;
+}

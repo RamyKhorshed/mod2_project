@@ -1,7 +1,9 @@
+<div class ="sign_up">
+  <h3>Create A New User</h3>
 <%= form_tag({controller: "users", action: "create"}, method: "post") do %>
   <%fields_for :user do |f|%>
     <%= f.label :name %>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name%><br>
 
     <%= f.label :username %>
     <%= f.text_field :username %><br>
@@ -18,11 +20,11 @@
     <%= f.submit "create" %>
     <%end%>
 <% end %>
-
+</div>
 
 
 <style>
 body {
-    background-color: papayawhip;
+    background-color: #CBB38A;
 }
 </style>

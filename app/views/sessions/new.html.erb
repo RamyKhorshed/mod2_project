@@ -5,10 +5,10 @@
   <h3 class="form-welcome-heading" >Welcome to TrackSuite</h3>
   <h4 class="form-signin-heading">Sign In:</h4>
   <%= form_tag "/sessions", method: "post" , :class => 'form-signin' do %>
-    <%= label_tag(:username, "Username:") %>
-    <%= text_field_tag(:username) %><br>
+    <%= label_tag(:username, "Username:")%>
+    <%= text_field_tag :username, nil, class: "my_input" %><br>
     <%= label_tag(:password, "Password:") %>
-    <%= password_field_tag(:password) %><br>
+    <%= password_field_tag :password, nil, class: "my_input" %><br>
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
       </button>
@@ -18,6 +18,6 @@
 
 <style>
 body {
-    background-color: papayawhip;
+    background-color: #CBB38A;
 }
 </style>

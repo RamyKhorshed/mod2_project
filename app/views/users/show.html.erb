@@ -10,11 +10,14 @@
 <% end %>
 
 <div class="achievements row">
-  <% @grouped_achievements.each do |category_name, achievement_group| %>
+  <% @grouped_user_achievements.each do |category_name, achievement_group| %>
     <div class="col s2">
       <h4><%= category_name %></h4>
+      <% if achievement_group.length == 0 %>
+        <li> No <%= category_name %> achievements :(</li>
+      <% end %>
       <% achievement_group.each do |achievement|%>
-        <h6><%= achievement.name %></h6>
+        <h6><%= link_to achievement.name, achievement_path %></h6>
         <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="50" width="50">
       <% end %>
     </div>
@@ -40,77 +43,23 @@
 <h3>Completed Activities</h3> <!--yes, repetitive, probably could abstract it out, but it works-->
 
 <div class="achievements row">
+  <% @grouped_user_activities.each do |category_name, activity_group| %>
   <div class="col s2">
-  <h4>Fitness</h4>
-    <% if @grouped_user_fitness.length == 0 %>
-      <li> No Fitness and Health activities :(</li>
+    <h4><%= category_name %></h4>
+    <% if activity_group.length == 0 %>
+      <li> No <%= category_name %> activities :(</li>
     <% end %>
-    <% @grouped_user_fitness.each do |fitness, count| %>
-      <li><%= link_to fitness.name, activity_path(fitness) %>
-      <% if count > 1 %>
-      , <%= count %>
-      <% end %>
-      </li>
+    <% activity_group.each do |activity, count| %>
+      <li><%= link_to activity.name, activity_path %>
+    <% if count > 1 %>
+    , <%= count %>
+    <% end %>
+    </li>
     <% end %>
   </div>
-
-  <div class="col s2">
-  <h4>Relationship</h4>
-    <% if @grouped_user_relationship.length == 0 %>
-      <li> No Relationship and Well-Being activities :(</li>
-    <% end %>
-    <% @grouped_user_relationship.each do |relationship, count| %>
-      <li><%= link_to relationship.name, activity_path(relationship) %>
-      <% if count > 1 %>
-      , <%= count %>
-      <% end %>
-      </li>
-    <% end %>
-  </div>
-
-  <div class="col s2">
-  <h4>Intellectual</h4>
-    <% if @grouped_user_intellectual.length == 0 %>
-      <li> No Intellectual activities :(</li>
-    <% end %>
-    <% @grouped_user_intellectual.each do |intellectual, count| %>
-      <li><%= link_to intellectual.name, activity_path(intellectual) %>
-      <% if count > 1 %>
-      , <%= count %>
-      <% end %>
-      </li>
-    <% end %>
-  </div>
-
-  <div class="col s2">
-  <h4>Purpose</h4>
-    <% if @grouped_user_purpose.length == 0 %>
-      <li> No Purpose activities :(</li>
-    <% end %>
-    <% @grouped_user_purpose.each do |purpose, count| %>
-      <li><%= link_to purpose.name, activity_path(purpose) %>
-      <% if count > 1 %>
-      , <%= count %>
-      <% end %>
-      </li>
-    <% end %>
-  </div>
-
-  <div class="col s2">
-  <h4>Professional</h4>
-    <% if @grouped_user_professional.length == 0 %>
-      <li> No Professional activities :(</li>
-    <% end %>
-    <% @grouped_user_professional.each do |professional, count| %>
-      <li><%= link_to professional.name, activity_path(professional) %>
-      <% if count > 1 %>
-      , <%= count %>
-      <% end %>
-      </li>
-    <% end %>
-  </div>
-
+  <% end %>
 </div>
+
 
 <div class="row">
 
@@ -189,6 +138,6 @@
 
 <style>
 body {
-    background-color: papayawhip;
+    background-color: #CBB38A;
 }
 </style>
