@@ -42,3 +42,40 @@
 activity_list.each do |name, category, points|
   Activity.create( name: name, category:category, points:points)
 end
+
+  achievement_list = [
+    ["5 Fitness", "5 Fitness Activities completed", 'https://goo.gl/wUKd2D'],
+    ["10 Fitness", "10 Fitness Activities completed", '../../views/images/Orange_star.png'],
+    ["15 Fitness", "15 Fitness Activities completed", '../../views/images/Yellow_star.png'],
+    ["20 Fitness", "20 Fitness Activities completed", '../../views/images/Green_star.png'],
+    ["25 Fitness", "25 Fitness Activities completed", '../../views/images/Blue_star.png'],
+
+    ["5 Relationship", "5 Relationship & Well-Being Activities completed", '../../views/images/Red_star.png'],
+    ["10 Relationship", "10 Relationship & Well-Being Activities completed", '../../views/images/Orange_star.png'],
+    ["15 Relationship", "15 Relationship & Well-Being Activities completed", '../../views/images/Yellow_star.png'],
+    ["20 Relationship", "20 Relationship & Well-Being Activities completed", '../../views/images/Green_star.png'],
+    ["25 Relationship", "25 Relationship & Well-Being Activities completed", '../../views/images/Blue_star.png'],
+
+    ["5 Intellectual", "5 Intellectual Activities completed", '../../views/images/Red_star.png'],
+    ["10 Intellectual", "10 Intellectual Activities completed", '../../views/images/Orange_star.png'],
+    ["15 Intellectual", "15 Intellectual Activities completed", '../../views/images/Yellow_star.png'],
+    ["20 Intellectual", "20 Intellectual Activities completed", '../../views/images/Green_star.png'],
+    ["25 Intellectual", "25 Intellectual Activities completed", '../../views/images/Blue_star.png'],
+
+    ["5 Purpose", "5 Purpose Activities completed", '../../views/images/Red_star.png'],
+    ["10 Purpose", "10 Purpose Activities completed", '../../views/images/Orange_star.png'],
+    ["15 Purpose", "15 Purpose Activities completed", '../../views/images/Yellow_star.png'],
+    ["20 Purpose", "20 Purpose Activities completed", '../../views/images/Green_star.png'],
+    ["25 Purpose", "25 Purpose Activities completed", '../../views/images/Blue_star.png'],
+
+    ["5 Professional", "5 Professional Activities completed", '../../views/images/Red_star.png'],
+    ["10 Professional", "10 Professional Activities completed", '../../views/images/Orange_star.png'],
+    ["15 Professional", "15 Professional Activities completed", '../../views/images/Yellow_star.png'],
+    ["20 Professional", "20 Professional Activities completed", '../../views/images/Green_star.png'],
+    ["25 Professional", "25 Professional Activities completed", '../../views/images/Blue_star.png']
+
+  ]
+
+achievement_list.each do |name, description, img_reference|
+  Achievement.create( name: name, description:description, img_reference:img_reference)
+end
