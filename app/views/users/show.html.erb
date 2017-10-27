@@ -1,18 +1,16 @@
-<% if @current_user == @user %>
-<h2> Hello <%= @user.name.capitalize %>, welcome to your tracker page! </h2>
+<% if @current_user == @user %> <!--different welcome message for current user vs visiting user-->
+  <h3> Hello <%= @user.name.capitalize %>, welcome to your tracker page! </h3>
 <% else %>
-<h2><%= @user.name.capitalize %>'s Page</h2>
-<% end %>
-</br>
-<h3>Completed Achievements</h3>
-<% if @public_achievements.length == 0 %>
-  <li> Nothing achieved :( </li>
-<% end %>
+  <h3><%= @user.name.capitalize %>'s Page</h3>
+<% end %></br>
 
-<div class="achievements row">
+<% if @any_achievements %>
+  <div class="z-depth-3 achievements row">
+  <h4 class="color_underline">Completed Achievements</h4>
+
   <% @grouped_user_achievements.each do |category_name, achievement_group| %>
     <div class="col s2">
-      <h4><%= category_name %></h4>
+      <h5><%= category_name %></h5>
       <% if achievement_group.length == 0 %>
         <li> No <%= category_name %> achievements :(</li>
       <% end %>
@@ -24,28 +22,30 @@
   <% end %>
 
   <div class="col s2">
-    <h4>Miscellaneous</h4>
+    <h5>Miscellaneous</h5>
     <% if @achievement_brain_and_brawn %>
     <h6>Brain and Brawn </h6>
     <img src="https://goo.gl/7tgofx" alt="Brain and Brawn" height="50" width="50">
     <% end %>
   </br>
   <% if @achievement_globalized %>
-  <h6>Globalized </h6>
+  <h5>Globalized </h5>
   <img src="https://goo.gl/rXAAPz" alt="Globalized" height="50" width="50">
   <% end %>
 </div>
 </div>
+</div>
+<% end %>
 
 
 
+<% if @any_activities %>
+<div class="z-depth-3 activities row">
+<h4 class="color_underline">Completed Activities</h4> <!--yes, repetitive, probably could abstract it out, but it works-->
 
-<h3>Completed Activities</h3> <!--yes, repetitive, probably could abstract it out, but it works-->
-
-<div class="achievements row">
   <% @grouped_user_activities.each do |category_name, activity_group| %>
   <div class="col s2">
-    <h4><%= category_name %></h4>
+    <h5><%= category_name %></h5>
     <% if activity_group.length == 0 %>
       <li> No <%= category_name %> activities :(</li>
     <% end %>
@@ -59,16 +59,17 @@
   </div>
   <% end %>
 </div>
+<% end %>
 
 
-<div class="row">
+<div class="z-depth-3 row">
 
   <div class="col s6">
-  <h3>Completed Activities Pie Chart</h3>
+  <h4 class="color_underline">Completed Activities Pie Chart</h4>
   <% if @current_user == @user %>
-  <h5>Are you well-rounded? (hint: It's interactive)</h5>
+  <h6>Are you well-rounded? (hint: It's interactive)</h6>
   <% else %>
-  <h5>Is <%= @user.name.capitalize %> well-rounded? (hint: It's interactive)</h5>
+  <h6>Is <%= @user.name.capitalize %> well-rounded? (hint: It's interactive)</h6>
   <% end %>
     <div id="chart-2" style="height: 300px; text-align: right; color: #999; line-height: 300px; font-size: 14px; font-family: Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif; margin-bottom: 20px;">Loading...</div>
     <script>
@@ -80,7 +81,7 @@
 <div class="col s3">
 <% if @current_user == @user %>
 
-  <h3>Activities to do</h3>
+  <h4 class="color_underline">Activities to do</h4>
   <% if @unaccomplished_activities.length == 0 %>
     <li> No activities to work on :( </li>
   <% end %>
@@ -96,7 +97,7 @@
 </div>
 
 <div class="col s3">
-  <h5>Add New Activity </h5>
+  <h5 class="color_underline">Add New Activity </h5>
   <%= form_for @activities do |f| %>
     <%= f.hidden_field :user_id, :value => @user.id%>
     Activity: <%= f.select :name, @activities_list.sort.collect {|activity| activity}, {}, {class: "browser-default"}%> <!--materialize reformatted how select dropdownsd work, this is a workaround-->
@@ -104,8 +105,21 @@
   <% end %>
 </br>
 
-  <h5>Make a New Activity</h5>
+  <h5 class="color_underline">Make a New Activity</h5>
+
   <%= form_for @activities do |f|%>
+
+  <% if @activities.errors.any? %>
+    <div id="error_explanation">
+      <p>There were some errors:</p>
+      <ul>
+        <% @activities.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
     <%= f.hidden_field :user_id, :value => @user.id%>
     <%= f.hidden_field :points, :value => 10 %>
     <%= f.hidden_field :accomplished, :value => false %>
@@ -125,8 +139,8 @@
 
 <% if @current_user == @user %>
 <div>
-<h4>Delete yourself</h4>
-<h4>Enter your password to confirm you want to delete your account</h4>
+<h5>Delete yourself</h5>
+<h6>Enter your password to confirm you want to delete your account</h6>
 <%= form_for @user do |f| %>
   <%= f.label :password %>
   <%= f.text_field :password, class: "my_delete_input" %>
@@ -138,6 +152,6 @@
 
 <style>
 body {
-    background-color: #CBB38A;
+    background-color: white;
 }
 </style>

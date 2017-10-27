@@ -22,10 +22,11 @@ class UsersController < ApplicationController
 
    def show
      find_user #finds the current user for use in view
-
-     @grouped_user_activities = {"Fitness" => grouped_user_fitness, "Relationship" => grouped_user_relationship, "Intellectual" => grouped_user_intellectual, "Purpose" => grouped_user_purpose, "Professional" => grouped_user_professional}
-     @grouped_user_achievements = {"Fitness" => grouped_fitness_achievements, "Relationship" => grouped_relationship_achievements, "Intellectual" => grouped_intellectual_achievements, "Purpose" => grouped_purpose_achievements, "Professional" => grouped_professional_achievements}
-
+     all_achievements
+     @grouped_user_activities = grouped_user_activities
+     @grouped_user_achievements = grouped_user_achievements
+     @any_achievements = any_achievements?
+     @any_activities = any_activities?
 
      @activities_list = Activity.distinct.pluck(:name)
      @public_achievements = find_user.achievements
@@ -33,7 +34,6 @@ class UsersController < ApplicationController
      @grouped_accomplished_activities = grouped_activities
      @activities = Activity.new
      @categories = ['Health & Fitness', 'Relationships & Well-Being', 'Intellectual', 'Purpose', 'Professional']
-     all_achievements
      category_points
    end
 
@@ -99,6 +99,10 @@ class UsersController < ApplicationController
     grouped_activities.select {|activity| activity.category == "Professional"}
   end
 
+  def grouped_user_activities
+    {"Fitness" => grouped_user_fitness, "Relationship" => grouped_user_relationship, "Intellectual" => grouped_user_intellectual, "Purpose" => grouped_user_purpose, "Professional" => grouped_user_professional}
+  end
+
   #get all achievments by category. called in @grouped_achievements in show method.
   def grouped_fitness_achievements
     find_user.achievements.where(category: "Health & Fitness")
@@ -116,7 +120,25 @@ class UsersController < ApplicationController
     find_user.achievements.where(category: "Professional")
   end
 
+  def grouped_user_achievements
+    {"Fitness" => grouped_fitness_achievements, "Relationship" => grouped_relationship_achievements, "Intellectual" => grouped_intellectual_achievements, "Purpose" => grouped_purpose_achievements, "Professional" => grouped_professional_achievements}
+  end
 
+
+  def any_achievements?
+    if find_user.achievements.empty?
+      false
+    else
+      true
+    end
+  end
+  def any_activities?
+    if find_user.activities.where(accomplished: true).empty?
+      false
+    else
+      true
+    end
+  end
 
   def category_points
     grouped = find_user.activities.where(accomplished: true).group_by(&:category) #finds all activities for user(find_user.activities), selects only the acomplished ones (.where(accomplished: true)), and groups those with identical activities by :name

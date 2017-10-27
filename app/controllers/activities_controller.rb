@@ -60,8 +60,10 @@ class ActivitiesController < ApplicationController
 
   def create_new_activity
     @user = User.find_by(id: params[:activity][:user_id]) #how do I put this in string params, and make it optional for the creation of an activity?
-    @activity = Activity.create(activity_params)
-    @user.activities << @activity
+    @activity = Activity.new(activity_params)
+    if @activity.save
+      @user.activities << @activity
+    end
     redirect_to user_path(@user)
   end
 
