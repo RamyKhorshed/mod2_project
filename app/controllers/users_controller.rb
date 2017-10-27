@@ -28,6 +28,12 @@ class UsersController < ApplicationController
      @grouped_user_purpose = grouped_user_purpose
      @grouped_user_professional = grouped_user_professional
 
+     @grouped_fitness_achievements = grouped_fitness_achievements
+     @grouped_relationship_achievements = grouped_relationship_achievements
+     @grouped_intellectual_achievements = grouped_intellectual_achievements
+     @grouped_purpose_achievements = grouped_purpose_achievements
+     @grouped_professional_achievements = grouped_professional_achievements
+
      @activities_list = Activity.distinct.pluck(:name)
      @public_achievements = find_user.achievements
      @unaccomplished_activities = find_user.activities.where(accomplished: false)
@@ -100,6 +106,23 @@ class UsersController < ApplicationController
     grouped_activities.select {|activity| activity.category == "Professional"}
   end
 
+  def grouped_fitness_achievements
+    # binding.pry
+    find_user.achievements.where(category: "Health & Fitness")
+  end
+  def grouped_relationship_achievements
+    find_user.achievements.where(category: "Relationships & Well-Being")
+  end
+  def grouped_intellectual_achievements
+    find_user.achievements.where(category: "Intellectual")
+  end
+  def grouped_purpose_achievements
+    find_user.achievements.where(category: "Purpose")
+  end
+  def grouped_professional_achievements
+    find_user.achievements.where(category: "Professional")
+  end
+
 
 
   def category_points
@@ -132,170 +155,99 @@ class UsersController < ApplicationController
       @user.achievements << Achievement.find_by(name: "5 Fitness")
     end
     if fitness_count >= 10 && !@user.achievements.find_by(name: "10 Fitness")
-
+      @user.achievements << Achievement.find_by(name: "10 Fitness")
     end
     if fitness_count >= 15 && !@user.achievements.find_by(name: "15 Fitness")
-
+      @user.achievements << Achievement.find_by(name: "15 Fitness")
     end
     if fitness_count >= 20 && !@user.achievements.find_by(name: "20 Fitness")
-
+      @user.achievements << Achievement.find_by(name: "20 Fitness")
     end
     if fitness_count >= 25 && !@user.achievements.find_by(name: "25 Fitness")
+      @user.achievements << Achievement.find_by(name: "25 Fitness")
+    end
 
+    if relationship_count >= 5 && !@user.achievements.find_by(name: "5 Relationship")
+      @user.achievements << Achievement.find_by(name: "5 Relationship")
+    end
+    if relationship_count >= 10 && !@user.achievements.find_by(name: "10 Relationship")
+      @user.achievements << Achievement.find_by(name: "10 Relationship")
+    end
+    if relationship_count >= 15 && !@user.achievements.find_by(name: "15 Relationship")
+      @user.achievements << Achievement.find_by(name: "15 Relationship")
+    end
+    if relationship_count >= 20 && !@user.achievements.find_by(name: "20 Relationship")
+      @user.achievements << Achievement.find_by(name: "20 Relationship")
+    end
+    if relationship_count >= 25 && !@user.achievements.find_by(name: "25 Relationship")
+      @user.achievements << Achievement.find_by(name: "25 Relationship")
+    end
+
+    if intellectual_count >= 5 && !@user.achievements.find_by(name: "5 Intellectual")
+      @user.achievements << Achievement.find_by(name: "5 Intellectual")
+    end
+    if intellectual_count >= 10 && !@user.achievements.find_by(name: "10 Intellectual")
+      @user.achievements << Achievement.find_by(name: "10 Intellectual")
+    end
+    if intellectual_count >= 15 && !@user.achievements.find_by(name: "15 Intellectual")
+      @user.achievements << Achievement.find_by(name: "15 Intellectual")
+    end
+    if intellectual_count >= 20 && !@user.achievements.find_by(name: "20 Intellectual")
+      @user.achievements << Achievement.find_by(name: "20 Intellectual")
+    end
+    if intellectual_count >= 25 && !@user.achievements.find_by(name: "25 Intellectual")
+      @user.achievements << Achievement.find_by(name: "25 Intellectual")
+    end
+
+    if purpose_count >= 5 && !@user.achievements.find_by(name: "5 Purpose")
+      @user.achievements << Achievement.find_by(name: "5 Purpose")
+    end
+    if purpose_count >= 10 && !@user.achievements.find_by(name: "10 Purpose")
+      @user.achievements << Achievement.find_by(name: "10 Purpose")
+    end
+    if purpose_count >= 15 && !@user.achievements.find_by(name: "15 Purpose")
+      @user.achievements << Achievement.find_by(name: "15 Purpose")
+    end
+    if purpose_count >= 20 && !@user.achievements.find_by(name: "20 Purpose")
+      @user.achievements << Achievement.find_by(name: "20 Purpose")
+    end
+    if purpose_count >= 25 && !@user.achievements.find_by(name: "25 Purpose")
+      @user.achievements << Achievement.find_by(name: "25 Purpose")
+    end
+
+    if professional_count >= 5 && !@user.achievements.find_by(name: "5 Professional")
+      @user.achievements << Achievement.find_by(name: "5 Professional")
+    end
+    if professional_count >= 10 && !@user.achievements.find_by(name: "10 Professional")
+      @user.achievements << Achievement.find_by(name: "10 Professional")
+    end
+    if professional_count >= 15 && !@user.achievements.find_by(name: "15 Professional")
+      @user.achievements << Achievement.find_by(name: "15 Professional")
+    end
+    if professional_count >= 20 && !@user.achievements.find_by(name: "20 Professional")
+      @user.achievements << Achievement.find_by(name: "20 Professional")
+    end
+    if professional_count >= 25 && !@user.achievements.find_by(name: "25 Professional")
+      @user.achievements << Achievement.find_by(name: "25 Professional")
     end
   end
 
-def achievements_list
-  @achievements = []
-end
-
-
-#fitness methods, 5-25
-  def fitness5
-    if fitness_count == 5
-      achievements_list << find_achievement("5 Fitness")
-    end
-  end
-  def fitness10
-    if fitness_count == 10
-      achievements_list << find_achievement("10 Fitness")
-    end
-  end
-#   def fitness15
-#     if fitness_count == 15
-#       achievements_list << find_achievement("15 Fitness")
-#     end
-#   end
-#   def fitness20
-#     if fitness_count == 20
-#       achievements_list << find_achievement("20 Fitness")
-#     end
-#   end
-#   def fitness25
-#     if fitness_count == 25
-#       achievements_list << find_achievement("25 Fitness")
-#     end
-#   end
-#   #relationship methods, 5-25
-#   def relationship5
-#     if relationship_count == 5
-#       achievements_list << find_achievement("5 Relationship")
-#     end
-#   end
-#   def relationship10
-#     if relationship_count == 10
-#       achievements_list << find_achievement("10 Relationship")
-#     end
-#   end
-#   def relationship15
-#     if relationship_count == 15
-#       achievements_list << find_achievement("15 Relationship")
-#     end
-#   end
-#   def relationship20
-#     if relationship_count == 20
-#       achievements_list << find_achievement("20 Relationship")
-#     end
-#   end
-#   def relationship25
-#     if relationship_count == 25
-#       achievements_list << find_achievement("25 Relationship")
-#     end
-#   end
-# #intellectual methods, 5-25
-#   def intellectual5
-#     if intellectual_count == 5
-#       achievements_list << find_achievement("5 Intellectual")
-#     end
-#   end
-#   def intellectual10
-#     if intellectual_count == 10
-#       achievements_list << find_achievement("10 Intellectual")
-#     end
-#   end
-#   def intellectual15
-#     if intellectual_count == 15
-#       achievements_list << find_achievement("15 Intellectual")
-#     end
-#   end
-#   def intellectual20
-#     if intellectual_count == 20
-#       achievements_list << find_achievement("20 Intellectual")
-#     end
-#   end
-#   def intellectual25
-#     if intellectual_count == 25
-#       achievements_list << find_achievement("25 Intellectual")
-#     end
-#   end
-# #Purpose methods, 5-25
-#   def purpose5
-#     if purpose_count == 5
-#       achievements_list << find_achievement("5 Purpose")
-#     end
-#   end
-#   def purpose10
-#     if purpose_count == 10
-#       achievements_list << find_achievement("10 Purpose")
-#     end
-#   end
-#   def purpose15
-#     if purpose_count == 15
-#       achievements_list << find_achievement("15 Purpose")
-#     end
-#   end
-#   def purpose20
-#     if purpose_count == 20
-#       achievements_list << find_achievement("20 Purpose")
-#     end
-#   end
-#   def purpose25
-#     if purpose_count == 25
-#       achievements_list << find_achievement("25 Purpose")
-#     end
-#   end
-#   #professional methods, 5-25
-#   def professional5
-#     if professional_count == 5
-#       achievements_list << find_achievement("5 Professional")
-#     end
-#   end
-#   def professional10
-#     if professional_count == 10
-#       achievements_list << find_achievement("10 Professional")
-#     end
-#   end
-#   def professional15
-#     if professional_count == 15
-#       achievements_list << find_achievement("15 Professional")
-#     end
-#   end
-#   def professional20
-#     if professional_count == 20
-#       achievements_list << find_achievement("20 Professional")
-#     end
-#   end
-#   def professional25
-#     if professional_count == 25
-#       achievements_list << find_achievement("25 Professional")
-#     end
-#   end
 
   def fitness_count
     find_user.activities.where(category: "Health & Fitness").where(accomplished: true).count
   end
-  # def relationship_count
-  #   find_user.activities.where(category: "Relationships & Well-Being").count
-  # end
-  # def intellectual_count
-  #   find_user.activities.where(category: "Intellectual").count
-  # end
-  # def purpose_count
-  #   find_user.activities.where(category: "Purpose").count
-  # end
-  # def professional_count
-  #   find_user.activities.where(category: "Professional").count
-  # end
+  def relationship_count
+    find_user.activities.where(category: "Relationships & Well-Being").where(accomplished: true).count
+  end
+  def intellectual_count
+    find_user.activities.where(category: "Intellectual").where(accomplished: true).count
+  end
+  def purpose_count
+    find_user.activities.where(category: "Purpose").where(accomplished: true).count
+  end
+  def professional_count
+    find_user.activities.where(category: "Professional").where(accomplished: true).count
+  end
 
 
   def find_achievement(name)

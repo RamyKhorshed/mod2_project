@@ -3,19 +3,50 @@
 <% else %>
 <h2><%= @user.name %>'s Page</h2>
 <% end %>
-
+</br>
 <h3>Completed Achievements</h3>
 <% if @public_achievements.length == 0 %>
   <li> Nothing achieved :( </li>
 <% end %>
-<% @user.achievements.each do |achieved|%>
-  <h5><%= achieved.name %></h5>
-  <img src="<%= achieved.img_reference %>" alt="<%achieved.description%>" height="80" width="80">
+
+<div class="row">
+  <div class="col s2">
+    <h4>Fitness</h4>
+<% @grouped_fitness_achievements.each do |achievement| %>
+  <h5><%= achievement.name %></h5>
+  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
 <% end %>
-<!-- <% if @fitness5 %>
-  <h5>5 Fitness!</h5>
-  <img src="https://goo.gl/wUKd2D" alt="Skinny"height="80" width="80">
-<% end %> -->
+</div>
+  <div class="col s2">
+    <h4>Relationship</h4>
+<% @grouped_relationship_achievements.each do |achievement| %>
+  <h5><%= achievement.name %></h5>
+  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
+<% end %>
+</div>
+  <div class="col s2">
+    <h4>Intellectual</h4>
+<% @grouped_intellectual_achievements.each do |achievement| %>
+  <h5><%= achievement.name %></h5>
+  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
+<% end %>
+</div>
+  <div class="col s2">
+    <h4>Purpose</h4>
+<% @grouped_purpose_achievements.each do |achievement| %>
+  <h5><%= achievement.name %></h5>
+  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
+<% end %>
+</div>
+  <div class="col s2">
+    <h4>Professional</h4>
+<% @grouped_professional_achievements.each do |achievement| %>
+  <h5><%= achievement.name %></h5>
+  <img src="<%= achievement.img_reference %>" alt="<%achievement.description%>" height="80" width="80">
+<% end %>
+</div>
+<div class="col s2">
+  <h4>Miscellaneous</h4>
 <% if @achievement_brain_and_brawn %>
   <h5>Brain and Brawn </h5>
   <img src="https://goo.gl/7tgofx" alt="Brain and Brawn" height="80" width="80">
@@ -25,6 +56,8 @@
   <h3>Globalized </h3>
   <img src="https://goo.gl/rXAAPz" alt="Globalized" height="80" width="80">
 <% end %>
+</div>
+</div>
 
 
 <h3>Completed Activities</h3> <!--yes, repetitive, probably could abstract it out, but it works-->
@@ -118,7 +151,7 @@
     </script>
   </div>
 
-<div class="col s6">
+<div class="col s3">
 <% if @current_user == @user %>
 
   <h3>Activities to do</h3>
@@ -134,16 +167,17 @@
        </li>
     <% end %>
   </ul>
-<div class="row">
-  <div class="col s6">
+</div>
+
+<div class="col s3">
   <h5>Add New Activity </h5>
   <%= form_for @activities do |f| %>
     <%= f.hidden_field :user_id, :value => @user.id%>
     Activity: <%= f.select :name, @activities_list.sort.collect {|activity| activity}, {}, {class: "browser-default"}%> <!--materialize reformatted how select dropdownsd work, this is a workaround-->
     <%= f.submit "Add Activity" %>
   <% end %>
-</div>
-<div class="col s6">
+</br>
+
   <h5>Make a New Activity</h5>
   <%= form_for @activities do |f|%>
     <%= f.hidden_field :user_id, :value => @user.id%>

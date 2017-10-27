@@ -44,38 +44,38 @@ activity_list.each do |name, category, points|
 end
 
   achievement_list = [
-    ["5 Fitness", "5 Fitness Activities completed", 'https://goo.gl/wUKd2D'],
-    ["10 Fitness", "10 Fitness Activities completed", '../../views/images/Orange_star.png'],
-    ["15 Fitness", "15 Fitness Activities completed", '../../views/images/Yellow_star.png'],
-    ["20 Fitness", "20 Fitness Activities completed", '../../views/images/Green_star.png'],
-    ["25 Fitness", "25 Fitness Activities completed", '../../views/images/Blue_star.png'],
+    ["5 Fitness", "5 Fitness Activities completed", 'https://goo.gl/GPzS84', "Health & Fitness"],
+    ["10 Fitness", "10 Fitness Activities completed", 'https://goo.gl/DxcGK2', "Health & Fitness"],
+    ["15 Fitness", "15 Fitness Activities completed", 'https://goo.gl/qwrzDa', "Health & Fitness"],
+    ["20 Fitness", "20 Fitness Activities completed", 'https://goo.gl/52dSpG', "Health & Fitness"],
+    ["25 Fitness", "25 Fitness Activities completed", 'https://goo.gl/rwF3x8', "Health & Fitness"],
 
-    ["5 Relationship", "5 Relationship & Well-Being Activities completed", '../../views/images/Red_star.png'],
-    ["10 Relationship", "10 Relationship & Well-Being Activities completed", '../../views/images/Orange_star.png'],
-    ["15 Relationship", "15 Relationship & Well-Being Activities completed", '../../views/images/Yellow_star.png'],
-    ["20 Relationship", "20 Relationship & Well-Being Activities completed", '../../views/images/Green_star.png'],
-    ["25 Relationship", "25 Relationship & Well-Being Activities completed", '../../views/images/Blue_star.png'],
+    ["5 Relationship", "5 Relationship & Well-Being Activities completed", 'https://goo.gl/z31uEv', "Relationships & Well-Being"],
+    ["10 Relationship", "10 Relationship & Well-Being Activities completed", 'https://goo.gl/h8cmgn', "Relationships & Well-Being"],
+    ["15 Relationship", "15 Relationship & Well-Being Activities completed", 'https://goo.gl/VSSFqT', "Relationships & Well-Being"],
+    ["20 Relationship", "20 Relationship & Well-Being Activities completed", 'https://goo.gl/Eb5SnX', "Relationships & Well-Being"],
+    ["25 Relationship", "25 Relationship & Well-Being Activities completed", 'https://goo.gl/UCi1uf', "Relationships & Well-Being"],
 
-    ["5 Intellectual", "5 Intellectual Activities completed", '../../views/images/Red_star.png'],
-    ["10 Intellectual", "10 Intellectual Activities completed", '../../views/images/Orange_star.png'],
-    ["15 Intellectual", "15 Intellectual Activities completed", '../../views/images/Yellow_star.png'],
-    ["20 Intellectual", "20 Intellectual Activities completed", '../../views/images/Green_star.png'],
-    ["25 Intellectual", "25 Intellectual Activities completed", '../../views/images/Blue_star.png'],
+    ["5 Intellectual", "5 Intellectual Activities completed", 'https://goo.gl/7iVeLd', "Intellectual"],
+    ["10 Intellectual", "10 Intellectual Activities completed", 'https://goo.gl/dSvTJk', "Intellectual"],
+    ["15 Intellectual", "15 Intellectual Activities completed", 'https://goo.gl/G2WsCw', "Intellectual"],
+    ["20 Intellectual", "20 Intellectual Activities completed", 'https://goo.gl/QHuNfS', "Intellectual"],
+    ["25 Intellectual", "25 Intellectual Activities completed", 'https://goo.gl/7fmssF', "Intellectual"],
 
-    ["5 Purpose", "5 Purpose Activities completed", '../../views/images/Red_star.png'],
-    ["10 Purpose", "10 Purpose Activities completed", '../../views/images/Orange_star.png'],
-    ["15 Purpose", "15 Purpose Activities completed", '../../views/images/Yellow_star.png'],
-    ["20 Purpose", "20 Purpose Activities completed", '../../views/images/Green_star.png'],
-    ["25 Purpose", "25 Purpose Activities completed", '../../views/images/Blue_star.png'],
+    ["5 Purpose", "5 Purpose Activities completed", 'https://goo.gl/nDEtKd', "Purpose"],
+    ["10 Purpose", "10 Purpose Activities completed", 'https://goo.gl/4ACwQD', "Purpose"],
+    ["15 Purpose", "15 Purpose Activities completed", 'https://goo.gl/yMGMrK', "Purpose"],
+    ["20 Purpose", "20 Purpose Activities completed", 'https://goo.gl/HQUWLv', "Purpose"],
+    ["25 Purpose", "25 Purpose Activities completed", 'https://goo.gl/KXNmuN', "Purpose"],
 
-    ["5 Professional", "5 Professional Activities completed", '../../views/images/Red_star.png'],
-    ["10 Professional", "10 Professional Activities completed", '../../views/images/Orange_star.png'],
-    ["15 Professional", "15 Professional Activities completed", '../../views/images/Yellow_star.png'],
-    ["20 Professional", "20 Professional Activities completed", '../../views/images/Green_star.png'],
-    ["25 Professional", "25 Professional Activities completed", '../../views/images/Blue_star.png']
+    ["5 Professional", "5 Professional Activities completed", 'https://goo.gl/idsa2K', "Professional"],
+    ["10 Professional", "10 Professional Activities completed", 'https://goo.gl/LctTwk', "Professional"],
+    ["15 Professional", "15 Professional Activities completed", 'https://goo.gl/Pmw11Q', "Professional"],
+    ["20 Professional", "20 Professional Activities completed", 'https://goo.gl/oqntoH', "Professional"],
+    ["25 Professional", "25 Professional Activities completed", 'https://goo.gl/pYWuJC', "Professional"]
 
   ]
 
-achievement_list.each do |name, description, img_reference|
-  Achievement.create( name: name, description:description, img_reference:img_reference)
+achievement_list.each do |name, description, img_reference, category|
+  Achievement.create( name: name, description:description, img_reference:img_reference, category:category)
 end
