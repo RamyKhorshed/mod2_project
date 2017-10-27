@@ -44,7 +44,7 @@ activity_list.each do |name, category, points|
 end
 
   achievement_list = [
-    ["5 Fitness", "5 Fitness Activities completed", '../../views/images/Red_star.png'],
+    ["5 Fitness", "5 Fitness Activities completed", 'https://goo.gl/wUKd2D'],
     ["10 Fitness", "10 Fitness Activities completed", '../../views/images/Orange_star.png'],
     ["15 Fitness", "15 Fitness Activities completed", '../../views/images/Yellow_star.png'],
     ["20 Fitness", "20 Fitness Activities completed", '../../views/images/Green_star.png'],

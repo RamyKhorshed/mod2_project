@@ -2,10 +2,14 @@
 
 
 <h2>Completed Achievements</h2>
-<% @user_achievements.each do |achievement| %>
-  <h5><%= achievement.name %></h5>
-  <img src= "<%= achievement.img_reference %>" >
+<% @user.achievements.each do |achieved|%>
+  <h5><%= achieved.name %></h5>
+  <img src="<%= achieved.img_reference %>" alt="<%achieved.description%>" height="80" width="80">
 <% end %>
+<!-- <% if @fitness5 %>
+  <h5>5 Fitness!</h5>
+  <img src="https://goo.gl/wUKd2D" alt="Skinny"height="80" width="80">
+<% end %> -->
 <% if @achievement_brain_and_brawn %>
   <h5>Brain and Brawn </h5>
   <img src="https://goo.gl/7tgofx" alt="Brain and Brawn" height="80" width="80">
